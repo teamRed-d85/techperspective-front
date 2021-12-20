@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
 
 export default class DeleteButton extends Component {
     render() {
         return (
-            <div>
-                
-            </div>
+            <Button variant="danger">Delete</Button>
         )
     }
 }
