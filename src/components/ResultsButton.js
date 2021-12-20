@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
 
 export default class ResultsButton extends Component {
     render() {
         return (
-            <div>
-                
-            </div>
+            <Button variant="secondary">Secondary</Button>
         )
     }
 }
