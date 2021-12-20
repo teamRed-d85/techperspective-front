@@ -21,4 +21,3 @@ export default class SurveyIframe extends Component {
       </div>
     );
   }
-}
