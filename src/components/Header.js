@@ -9,8 +9,8 @@ export default class Header extends Component {
         return (
             <>
             <Navbar>
-            {this.props.auth0.isAuthenticated && <LogOutButton />}
-            {this.props.auth0.isAuthenticated && <AdminButton />}
+                    {/* {this.props.auth0.isAuthenticated && <LogOutButton />}
+            {this.props.auth0.isAuthenticated && <AdminButton />} */}
             </Navbar>
             </>
             
