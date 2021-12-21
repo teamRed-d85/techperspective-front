@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Iframe from "react-iframe"; // Iframe docs here: https://www.npmjs.com/package/react-iframe
+// import JotformEmbed from 'react-jotform-embed';
 
 export default class SurveyIframe extends Component {
   render() {
     return (
       <div>
-        <Card>
-          <h2>Please complete the embedded survey below.</h2>
-
-          <h2>Be sure to hit "SUBMIT" after answering the last question.</h2>
-
+        
+      <Card>
           <Iframe
-            url={`https://form.jotform.com/${process.env.REACT_APP_JOTFORM_API}`}
+            url={`http://www.jotform.com/form/211237450605043`}
             width="100%"
             height="500px"
             id="survey"
