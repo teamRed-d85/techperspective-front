@@ -1,6 +1,7 @@
 import React from "react";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 import { Bar } from "react-chartjs-2";
-import { MDBContainer } from "mdbreact";
+import { MDBContainer } from "mdb-react-ui-kit";
 
 class ResultsGraph extends React.Component {
   state = {

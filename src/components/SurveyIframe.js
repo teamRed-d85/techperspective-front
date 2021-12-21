@@ -12,7 +12,7 @@ export default class SurveyIframe extends Component {
           <h2>Be sure to hit "SUBMIT" after answering the last question.</h2>
 
           <Iframe
-            url={`https://form.jotform.com/${REACT_APP_JOTFORM_API}`}
+            url={`https://form.jotform.com/${process.env.REACT_APP_JOTFORM_API}`}
             width="100%"
             height="500px"
             id="survey"
@@ -21,3 +21,4 @@ export default class SurveyIframe extends Component {
       </div>
     );
   }
+}
