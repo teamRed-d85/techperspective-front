@@ -7,7 +7,7 @@ export default class Survey extends Component {
         return (
             <div>
                 <SurveyHeader />
-                <SurveyIframe />
+                <SurveyIframe activeSurvey={this.props.activeSurvey} />
             </div>
         )
     }
