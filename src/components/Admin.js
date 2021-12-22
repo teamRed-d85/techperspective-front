@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdminHeader from './AdminHeader';
-import SurveySummaryList from './SurveySummary';
+import SurveySummaryList from './SurveySummaryList';
 import AllResultsButton from './AllResultsButton';
 
 
@@ -10,7 +10,7 @@ export default class Admin extends Component {
         return (
             <>
                 <AdminHeader />
-                <SurveySummaryList />
+                <SurveySummaryList surveyData = {this.props.surveyData} />
                 <AllResultsButton />
             </>
         )

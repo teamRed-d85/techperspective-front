@@ -100,7 +100,7 @@ class App extends Component {
           {/* <Results surveyData={this.state.surveyData} getSavedSurvey= {this.getSavedSurvey} /> */}
           <Routes>
             <Route exact path="/" element={<Survey />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin" element={<Admin surveyData = {this.state.surveyData} />} />
             <Route surveyData = {this.state.surveyData}  path="/results" element={<Results getSavedSurvey= {this.getSavedSurvey} surveyData = {this.state.surveyData} />} />
           </Routes>
         </Router>
