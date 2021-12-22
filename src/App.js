@@ -26,19 +26,25 @@ class App extends Component {
   /* Grab survey data from server, which grabs from db */
   getSavedSurvey = async () => {
     let url = `${process.env.REACT_APP_SERVER_URL}/survey`
+    console.log("getSavedSurvey url is: " + url);
+    
     try {
       let result = await axios.get(url);
+      console.log("The surveydata.data is before setting state is: " + this.state.surveyData)
       this.setState({ surveyData: result.data });
       this.setState({error: false})
+      console.log("The surveydata.data is: " + JSON.stringify(this.state.surveyData));
     } catch (error) {
       console.error("Data receive error: " + error);
       this.setState({ error: true });
     }
+
   }
 
   /* Ping server to delete survey data from DB */
   deleteSavedSurvey = async (id) => {
   let url = `${process.env.REACT_APP_SERVER_URL}/survey`
+  console.log("deleteSavedSurvey url is: " + url);
     try {
       await axios.delete(url);
       const updatedSurveys = this.state.surveyData.filter((survey)=> survey._id !== id);
@@ -63,6 +69,8 @@ class App extends Component {
 
   // }
 
+  /* Ping Jotform to clone a survey for the next class */
+
 
 
   // getConfig = async () => {
@@ -79,6 +87,9 @@ class App extends Component {
   //   }
   // }
 
+  componentDidMount() {
+    this.getSavedSurvey();
+  }
 
 
   render() {
@@ -86,11 +97,11 @@ class App extends Component {
       <>
         <Router>
           <Header />
+          <Results surveyData={this.state.surveyData} getSavedSurvey= {this.getSavedSurvey} />
           <Routes>
             <Route exact path="/" element={<Survey />} />
             <Route path="/admin" element={<Admin />} />
-            <Route  path="/results" element={<Results getSavedSurvey = {this.getSavedSurvey} surveyData = {this.state.surveyData} />} />
-            {/* <Route path='/aboutus' element={<AboutUs />} /> */}
+            {/* <Route surveyData = {this.state.surveyData}  path="/results" element={<Results getSavedSurvey= {this.getSavedSurvey} surveyData = {this.state.surveyData} />} /> */}
           </Routes>
         </Router>
       </>

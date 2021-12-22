@@ -3,14 +3,14 @@
     {
       "name": "Erik Savage",
       "bio": "",
-      "img": "/imgs/steve.jpg",
+      "img": "/imgs/you.jpg",
       "linkedin": "https://www.linkedin.com/in/erikksavage/",
       "github": "https://github.com/eriksavage"
     },
     {
       "name": "Emily Landers",
-      "bio": "",
-      "img": "/imgs/Joe.jpeg",
+      "bio": "I have a dog.",
+      "img": "/imgs/you.jpeg",
       "linkedin": "https://www.linkedin.com/in/emily-landers-9b672019b/",
       "github": "https://github.com/Emily-Landers"
     },
@@ -24,7 +24,7 @@
     {
       "name": "Ryan Lee",
       "bio": "",
-      "img": "/imgs/me.jpeg",
+      "img": "/imgs/lee.png",
       "linkedin": "https://www.linkedin.com/in/ryanyinlee/",
       "github": "https://github.com/ryanyinlee"
     },
