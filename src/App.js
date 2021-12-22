@@ -17,6 +17,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeSurvey: 'null',
       surveyData: [],
       surveyId: null,
       error: false
@@ -56,18 +57,22 @@ class App extends Component {
     }
   }
 
-   /* Ping server to create a new survey */
-  // createNewSurvey = async () => {
-  // let url = `${process.env.REACT_APP_SERVER_URL}/survey`
-  // try {
-  //   await axios.post(url);
-  //   const newSurvey =
-  // }
+  /* Ping server to create a new survey ID to enter into the survey Iframe*/
+  createNewSurvey = async () => {
+    console.log('new survey button works');
+    // let url = `${process.env.REACT_APP_SERVER_URL}/jotform`
+    // try {
+    //   const newSurveyObj = await axios.post(url);
+    //   this.setState({ activeSurvey: newSurveyObj.data });
+
+    // } catch (error) {
+    //   console.log(error, 'could not create new survey');
+    // }
 
 
 
 
-  // }
+  }
 
   /* Ping Jotform to clone a survey for the next class */
 
@@ -100,8 +105,8 @@ class App extends Component {
           {/* <Results surveyData={this.state.surveyData} getSavedSurvey= {this.getSavedSurvey} /> */}
           <Routes>
             <Route exact path="/" element={<Survey />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route surveyData = {this.state.surveyData}  path="/results" element={<Results getSavedSurvey= {this.getSavedSurvey} surveyData = {this.state.surveyData} />} />
+            <Route path="/admin" element={<Admin activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} />} />
+            {/* <Route path="/results" element={<Results getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} /> */}
           </Routes>
         </Router>
       </>
