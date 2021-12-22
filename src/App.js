@@ -57,10 +57,6 @@ class App extends Component {
   //   await axios.post(url);
   //   const newSurvey =
   // }
-
-
-
-
   // }
 
 
