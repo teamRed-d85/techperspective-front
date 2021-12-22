@@ -9,7 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import faker from 'faker';
+
 
 ChartJS.register(
   CategoryScale,
@@ -48,9 +48,9 @@ const data = {
   labels,
   datasets: [
     {
-      label: 'Dataset 1',
+      label: 'Number of Questions Answered True',
       data: props.surveyData.Results,
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      backgroundColor: '#EA4444',
     },
   ],
 };

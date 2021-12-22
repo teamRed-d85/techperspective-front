@@ -6,7 +6,7 @@ class ResultsHeader extends Component {
         return (
             <>
             <div>
-                <h1>These Are The Results</h1>
+                <h1>Survey Results</h1>
             </div>
             </>
         )
