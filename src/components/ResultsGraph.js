@@ -32,8 +32,14 @@ export const options = {
     },
   },
 };
+// display survey results in the graph
+// graphSurveyResults = async () => {
+const labels = this.props.surveyData.results;
+//let config = await this.props.config();
+// console.log();
+// }
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
 
 export const data = {
   labels,
@@ -51,6 +57,6 @@ export const data = {
   ],
 };
 
-export default function ResultsGraph () {
+export default function ResultsGraph() {
   return <Bar options={options} data={data} />;
 }
