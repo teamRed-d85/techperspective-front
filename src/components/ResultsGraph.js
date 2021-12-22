@@ -33,13 +33,14 @@ export const options = {
   },
 };
 export default function ResultsGraph(props) {
-  console.log(props)
-// display survey results in the graph
-// graphSurveyResults = async () => {
-const labels = props.surveyData.results;
-//let config = await this.props.config();
 
-// }
+const labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
+if (!props.surveyData){
+  return null
+}
+
+console.log(props.surveyData)
+
 
 
 
@@ -48,13 +49,8 @@ const data = {
   datasets: [
     {
       label: 'Dataset 1',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      data: props.surveyData.Results,
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
     },
   ],
 };
