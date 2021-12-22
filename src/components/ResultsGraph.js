@@ -32,16 +32,18 @@ export const options = {
     },
   },
 };
+export default function ResultsGraph(props) {
+  console.log(props)
 // display survey results in the graph
 // graphSurveyResults = async () => {
-const labels = this.props.surveyData.results;
+const labels = props.surveyData.results;
 //let config = await this.props.config();
-// console.log();
+
 // }
 
 
 
-export const data = {
+const data = {
   labels,
   datasets: [
     {
@@ -57,6 +59,6 @@ export const data = {
   ],
 };
 
-export default function ResultsGraph() {
+
   return <Bar options={options} data={data} />;
 }

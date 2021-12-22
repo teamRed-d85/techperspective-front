@@ -13,7 +13,7 @@ class Results extends Component {
         return (
             <>  
                 <ResultsHeader />
-                <ResultsGraph surveyData={this.props.surveyData}/>
+                <ResultsGraph surveyData={this.props.surveyData[0]}/>
                 <Button onClick={this.props.getSavedSurvey}>Get Saved Survey</Button>
             </>
         )
