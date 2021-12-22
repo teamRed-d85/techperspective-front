@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdminHeader from './AdminHeader';
-import SurveySummaryList from './SurveySummary';
+import SurveySummaryList from './SurveySummaryList';
 import AllResultsButton from './AllResultsButton';
 import NewSurveyButton from './NewSurveyButton';
 import ActiveSurvey from './ActiveSurvey';
