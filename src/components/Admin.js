@@ -26,7 +26,7 @@ class Admin extends Component {
     render() {
         return (
             <>
-                <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} />
+                <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} />
                 <AdminHeader />
                 {this.props.activeSurvey === null && <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />}
                 {this.props.activeSurvey && <ActiveSurvey activeSurvey={this.props.activeSurvey} openModal={this.openModal} />}

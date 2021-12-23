@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button';
 
 class ConfirmModal extends Component {
     handleConfirm = () => {
-        console.log('clicked confirm')
+        this.props.putActiveSurvey();
+        this.props.closeModal();
     }
     render() {
         return (
