@@ -1,17 +1,27 @@
 import { Component } from 'react';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
 
 class ActiveSurvey extends Component {
     render() {
         return (
-            <Card style={{ width: '18rem' }}>
-                <Card.Header>{this.props.activeSurvey.createdOn}</Card.Header>
-                <ListGroup variant="flush">
-                    <ListGroup.Item>{this.props.activeSurvey.surveyID}</ListGroup.Item>
-                    <ListGroup.Item>{this.props.activeSurvey.submissionCount}</ListGroup.Item>
+            <Card>
+                <Card.Header as="h5">Active Survey</Card.Header>
+                <Card.Body>
+                    <Row md={5} style={{ justifyContent: 'space-around' }}>
 
-                </ListGroup>
+                        <Card.Title>{this.props.activeSurvey.createdOn}</Card.Title>
+                        <Card.Text>
+                            Survey ID: {this.props.activeSurvey.surveyID}
+                        </Card.Text>
+                        <Card.Text>
+                            Submission Count: {this.props.activeSurvey.submissionCount}
+                        </Card.Text>
+                        <Button variant="secondary" style={{ width: '11rem' }}>Results</Button>
+                        <Button variant="success" style={{ width: '11rem' }}>Survey Complete</Button>
+                    </Row>
+                </Card.Body>
             </Card>
         )
     }
