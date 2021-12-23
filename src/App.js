@@ -70,6 +70,16 @@ class App extends Component {
     }
   }
 
+  getActiveSurvey = async () => {
+    const url = `${process.env.REACT_APP_SERVER_URL}/active`
+    try {
+      const activeSurvey = await axios.get(url);
+      this.setState({ activeSurvey: activeSurvey.data });
+    } catch (error) {
+      console.log(error, 'no active survies');
+    }
+  }
+
   /* Ping Jotform to clone a survey for the next class */
 
 
@@ -90,6 +100,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getSavedSurvey();
+    this.getActiveSurvey();
   }
 
 
