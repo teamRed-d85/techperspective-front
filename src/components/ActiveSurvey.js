@@ -19,7 +19,7 @@ class ActiveSurvey extends Component {
                             Submission Count: {this.props.activeSurvey.submissionCount}
                         </Card.Text>
                         <Button variant="secondary" style={{ width: '11rem' }}>Results</Button>
-                        <Button variant="success" style={{ width: '11rem' }}>Survey Complete</Button>
+                        <Button variant="success" style={{ width: '11rem' }} onClick={this.props.openModal}>Survey Complete</Button>
                     </Row>
                 </Card.Body>
             </Card>
