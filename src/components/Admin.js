@@ -12,7 +12,7 @@ export default class Admin extends Component {
         return (
             <>
                 <AdminHeader />
-                <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />
+                {this.props.activeSurvey === null && <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />}
                 {this.props.activeSurvey && <ActiveSurvey activeSurvey={this.props.activeSurvey} />}
                 <SurveySummaryList surveyData={this.props.surveyData} />
                 <AllResultsButton />
