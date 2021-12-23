@@ -17,7 +17,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeSurvey: null,
+      activeSurvey: {
+        surveyID: '000005', createdOn: '2021-12-21 12:50:47', submissionCount: 9, results: [0, 0, 0, 0, 1, 2, 0, 0, 3, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+      },
       surveyData: [],
       surveyId: null,
       error: false
