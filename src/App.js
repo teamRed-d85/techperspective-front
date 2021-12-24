@@ -27,14 +27,14 @@ class App extends Component {
   /* Grab survey data from server, which grabs from db */
   getSavedSurvey = async () => {
     let url = `${process.env.REACT_APP_SERVER_URL}/survey`
-    console.log("getSavedSurvey url is: " + url);
+    // console.log("getSavedSurvey url is: " + url);
     
     try {
       let result = await axios.get(url);
-      console.log("The surveydata.data is before setting state is: " + this.state.surveyData)
+      // console.log("The surveydata.data is before setting state is: " + this.state.surveyData)
       this.setState({ surveyData: result.data });
       this.setState({error: false})
-      console.log("The surveydata.data is: " + JSON.stringify(this.state.surveyData));
+      // console.log("The surveydata.data is: " + JSON.stringify(this.state.surveyData));
     } catch (error) {
       console.error("Data receive error: " + error);
       this.setState({ error: true });
@@ -45,7 +45,7 @@ class App extends Component {
   /* Ping server to delete survey data from DB */
   deleteSavedSurvey = async (id) => {
   let url = `${process.env.REACT_APP_SERVER_URL}/survey`
-  console.log("deleteSavedSurvey url is: " + url);
+  // console.log("deleteSavedSurvey url is: " + url);
     try {
       await axios.delete(url);
       const updatedSurveys = this.state.surveyData.filter((survey)=> survey._id !== id);
@@ -76,7 +76,21 @@ class App extends Component {
       const activeSurvey = await axios.get(url);
       this.setState({ activeSurvey: activeSurvey.data });
     } catch (error) {
-      console.log(error, 'no active survies');
+      console.log(error, 'No Active Survey');
+    }
+  }
+
+  putActiveSurvey = async () => {
+    const url = `${process.env.REACT_APP_SERVER_URL}/survey`
+
+    console.log(this.state.activeSurvey);
+    this.state.activeSurvey.active = false;
+    console.log(this.state.activeSurvey);
+
+    try {
+      await axios.post(url, this.state.activeSurvey);
+    } catch (error) {
+      console.log(error, 'could not post survey');
     }
   }
 
@@ -112,7 +126,7 @@ class App extends Component {
           {/* <Results surveyData={this.state.surveyData} getSavedSurvey= {this.getSavedSurvey} /> */}
           <Routes>
             <Route exact path="/" element={<Survey />} />
-            <Route path="/admin" element={<Admin activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} />} />
+            <Route path="/admin" element={<Admin activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} />} />
             <Route surveyData={this.state.surveyData} path="/results" element={<Results getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
             <Route path="/survey" element={<Survey activeSurvey={this.state.activeSurvey} />} />
           </Routes>
