@@ -20,10 +20,13 @@ class App extends Component {
       activeSurvey: null,
       surveyData: [],
       surveyId: null,
-      error: false
+      error: false,
+      surveyToGraph: null
     }
   }
-
+  graphResults = (obj) =>{
+    this.setState({surveyToGraph: obj})
+  }
   /* Grab survey data from server, which grabs from db */
   getSavedSurvey = async () => {
     let url = `${process.env.REACT_APP_SERVER_URL}/survey`
@@ -126,8 +129,8 @@ class App extends Component {
           {/* <Results surveyData={this.state.surveyData} getSavedSurvey= {this.getSavedSurvey} /> */}
           <Routes>
             <Route exact path="/" element={<Survey />} />
-            <Route path="/admin" element={<Admin activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} />} />
-            <Route surveyData={this.state.surveyData} path="/results" element={<Results getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
+            <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey}/>} />
+            <Route path="/results" element={<Results getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
             <Route path="/survey" element={<Survey activeSurvey={this.state.activeSurvey} />} />
           </Routes>
         </Router>
