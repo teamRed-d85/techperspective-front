@@ -4,7 +4,7 @@ import Survey from './components/Survey';
 import Admin from './components/Admin';
 import Results from './components/Results';
 // import AboutUs from './components/AboutUs';
-//import { withAuth0 } from '@auth0/auth0-react';
+import { withAuth0 } from '@auth0/auth0-react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -60,20 +60,20 @@ class App extends Component {
   // }
 
 
-
-  // getConfig = async () => {
-  //   if (this.props.auth0.isAuthenticated) {
-  //     const res = await this.props.auth0.getIdTokenClaims();
-  //     const jwt = res.__raw;
-  //     console.log(res);
-  //     console.log(jwt);
-  //     const config = {
-  //       headers: { "Authorization": `Bearer ${jwt}`},
-  //     }
-  //     console.log(config);
-  //     return config;
-  //   }
-  // }
+//Adds Auth0 Integration
+  getConfig = async () => {
+    if (this.props.auth0.isAuthenticated) {
+      const res = await this.props.auth0.getIdTokenClaims();
+      const jwt = res.__raw;
+      console.log(res);
+      console.log(jwt);
+      const config = {
+        headers: { "Authorization": `Bearer ${jwt}`},
+      }
+      console.log(config);
+      return config;
+    }
+  }
 
 
 
@@ -94,4 +94,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAuth0(App);
