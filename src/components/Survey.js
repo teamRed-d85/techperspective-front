@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import SurveyHeader from './SurveyHeader';
 import SurveyIframe from './SurveyIframe';
 
 export default class Survey extends Component {
     render() {
         return (
             <div>
-                <SurveyHeader />
+                
+                <h1>Please complete the embedded survey below.</h1>
+
+                <h2>Be sure to hit "SUBMIT" after answering the last question.</h2>
+                <br></br>
+
                 <SurveyIframe activeSurvey={this.props.activeSurvey} />
             </div>
         )
