@@ -47,7 +47,8 @@ class App extends Component {
 
   /* Ping server to delete survey data from DB */
   deleteSavedSurvey = async (id) => {
-  let url = `${process.env.REACT_APP_SERVER_URL}/survey`
+    // console.log('clicked delete button', id);
+    let url = `${process.env.REACT_APP_SERVER_URL}/survey/${id}`
   // console.log("deleteSavedSurvey url is: " + url);
     try {
       await axios.delete(url);
