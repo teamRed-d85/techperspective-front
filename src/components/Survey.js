@@ -11,7 +11,7 @@ export default class Survey extends Component {
                 <h2>Be sure to hit "SUBMIT" after answering the last question.</h2>
                 <br></br>
 
-                <SurveyIframe activeSurvey={this.props.activeSurvey} />
+                {this.props.activeSurvey ? <SurveyIframe activeSurvey={this.props.activeSurvey} /> : <h2>No active survey available.</h2>}
             </div>
         )
     }
