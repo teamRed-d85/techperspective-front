@@ -9,8 +9,9 @@ class ActiveSurvey extends Component {
             <Card>
                 <Card.Header as="h5">Active Survey</Card.Header>
                 <Card.Body>
-                    <Row md={5} style={{ justifyContent: 'space-around' }}>
+                    <Row md={6} style={{ justifyContent: 'space-around' }}>
 
+                        <Button variant="primary" onClick={this.props.getActiveSurvey} style={{ width: '11rem' }}>Refresh</Button>
                         <Card.Title>{this.props.activeSurvey.createdOn}</Card.Title>
                         <Card.Text>
                             Survey ID: {this.props.activeSurvey.surveyID}
