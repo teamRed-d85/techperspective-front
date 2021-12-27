@@ -22,7 +22,7 @@ export default class SurveySummaryList extends Component {
                       <ResultsButton surveyData = {info.results} graphResults = {this.props.graphResults}/>
                     </Col>
                     <Col>
-                      <DeleteButton deleteSavedSurvey={this.props.deleteSavedSurvey} />
+                      <DeleteButton surveyData={info} deleteSavedSurvey={this.props.deleteSavedSurvey} />
                     </Col>
                   </Row>
                 </Accordion.Body>

@@ -4,7 +4,7 @@ import Survey from './components/Survey';
 import Admin from './components/Admin';
 import Results from './components/Results';
 // import AboutUs from './components/AboutUs';
-import { withAuth0 } from '@auth0/auth0-react';
+// import { withAuth0 } from '@auth0/auth0-react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -47,7 +47,8 @@ class App extends Component {
 
   /* Ping server to delete survey data from DB */
   deleteSavedSurvey = async (id) => {
-  let url = `${process.env.REACT_APP_SERVER_URL}/survey`
+    // console.log('clicked delete button', id);
+    let url = `${process.env.REACT_APP_SERVER_URL}/survey/${id}`
   // console.log("deleteSavedSurvey url is: " + url);
     try {
       await axios.delete(url);
@@ -139,4 +140,6 @@ class App extends Component {
   }
 }
 
-export default withAuth0(App);
+// export default withAuth0(App);
+export default App;
+
