@@ -12,13 +12,12 @@ export default class SurveySummaryList extends Component {
         <Accordion>
           {this.props.surveyData.map((info) => {
             return (
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>{info.CreatedOn}</Accordion.Header>
-                <Accordion.Body>
+              <Accordion.Item key={info._id} eventKey={info.surveyID}>
+                <Accordion.Header>Survey Date: {info.createdOn}</Accordion.Header>
+                <Accordion.Body style={{ textAlign: 'center' }}>
                   <Row>
-                    <Col>Results: {info.Results}</Col>
-                    <Col>Submission Count: {info.SubmissionCount}</Col>
-                    <Col>Survey ID: {info.SurveyID}</Col>
+                    <Col>Submission Count: {info.submissionCount}</Col>
+                    <Col>Survey ID: {info.surveyID}</Col>
                     <Col>
                       <ResultsButton surveyData = {info.results} graphResults = {this.props.graphResults}/>
                     </Col>
