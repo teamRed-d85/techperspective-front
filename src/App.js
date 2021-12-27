@@ -21,7 +21,7 @@ class App extends Component {
       surveyData: [],
       surveyId: null,
       error: false,
-      surveyToGraph: null
+      surveyToGraph: []
     }
   }
   graphResults = (obj) =>{
@@ -130,7 +130,7 @@ class App extends Component {
           <Routes>
             <Route exact path="/" element={<Survey />} />
             <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey}/>} />
-            <Route path="/results" element={<Results getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
+            <Route path="/results" element={<Results surveyToGraph= {this.state.surveyToGraph} getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
             <Route path="/survey" element={<Survey activeSurvey={this.state.activeSurvey} />} />
           </Routes>
         </Router>
