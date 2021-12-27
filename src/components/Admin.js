@@ -11,7 +11,7 @@ export default class Admin extends Component {
         return (
             <>
                 <AdminHeader />
-                <SurveySummaryList surveyData = {this.props.surveyData} />
+                <SurveySummaryList graphResults = {this.props.graphResults} surveyData = {this.props.surveyData} />
                 <AllResultsButton />
             </>
         )

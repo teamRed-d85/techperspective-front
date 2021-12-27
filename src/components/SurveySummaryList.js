@@ -20,7 +20,7 @@ export default class SurveySummaryList extends Component {
                     <Col>Submission Count: {info.SubmissionCount}</Col>
                     <Col>Survey ID: {info.SurveyID}</Col>
                     <Col>
-                      <ResultsButton />
+                      <ResultsButton surveyData = {info.results} graphResults = {this.props.graphResults}/>
                     </Col>
                     <Col>
                       <DeleteButton />
