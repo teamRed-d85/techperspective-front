@@ -129,7 +129,7 @@ class App extends Component {
           {/* <Results surveyData={this.state.surveyData} getSavedSurvey= {this.getSavedSurvey} /> */}
           <Routes>
             <Route exact path="/" element={<Survey />} />
-            <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey}/>} />
+            <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey}/>} />
             <Route path="/results" element={<Results getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
             <Route path="/survey" element={<Survey activeSurvey={this.state.activeSurvey} />} />
           </Routes>

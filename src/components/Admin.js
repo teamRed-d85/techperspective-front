@@ -29,7 +29,7 @@ class Admin extends Component {
                 <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} />
                 <AdminHeader />
                 {this.props.activeSurvey === null && <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />}
-                {this.props.activeSurvey && <ActiveSurvey activeSurvey={this.props.activeSurvey} openModal={this.openModal} />}
+                {this.props.activeSurvey && <ActiveSurvey activeSurvey={this.props.activeSurvey} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey}/>}
                 <SurveySummaryList graphResults = {this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey}/>
                 <AllResultsButton />
             </>
