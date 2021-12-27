@@ -35,11 +35,11 @@ export const options = {
 export default function ResultsGraph(props) {
 
 const labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
-if (!props.surveyData){
+if (!props.surveyToGrab){
   return null
 }
 
-console.log(props.surveyData)
+console.log(props.surveyToGrab)
 
 
 
@@ -49,7 +49,7 @@ const data = {
   datasets: [
     {
       label: 'Number of Questions Answered True',
-      data: props.surveyData.Results,
+      data: props.surveyToGrab.Results,
       backgroundColor: '#EA4444',
     },
   ],
