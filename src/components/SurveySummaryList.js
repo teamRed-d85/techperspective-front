@@ -18,9 +18,11 @@ export default class SurveySummaryList extends Component {
                   <Row>
                     <Col>Submission Count: {info.submissionCount}</Col>
                     <Col>Survey ID: {info.surveyID}</Col>
-                    <Col><ResultsButton /></Col>
                     <Col>
-                      <DeleteButton />
+                      <ResultsButton surveyData = {info.results} graphResults = {this.props.graphResults}/>
+                    </Col>
+                    <Col>
+                      <DeleteButton deleteSavedSurvey={this.props.deleteSavedSurvey} />
                     </Col>
                   </Row>
                 </Accordion.Body>
