@@ -2,29 +2,29 @@
   "data": [
     {
       "name": "Erik Savage",
-      "bio": "",
+      "bio": "JavaScript developer with a background in the design and manufacturing of automotive and consumer electronic products, that has an affinity for solving complex problems, making data driven decisions, and building user-centric tools, apps, and websites.",
       "img": "/imgs/you.jpg",
       "linkedin": "https://www.linkedin.com/in/erikksavage/",
       "github": "https://github.com/eriksavage"
     },
     {
       "name": "Emily Landers",
-      "bio": "",
+      "bio": "I have a dog.",
       "img": "/imgs/you.jpeg",
       "linkedin": "https://www.linkedin.com/in/emily-landers-9b672019b/",
       "github": "https://github.com/Emily-Landers"
     },
     {
       "name": "Michael Metcalf",
-      "bio": "",
-      "img": "/imgs/you.jpeg",
+      "bio": "Hi, my name is Michael. I am coming into software development from the Army where I was for past 20 years. I enjoy the challenge of coding and am looking forward to a career as a software developer. I live in the Seattle area, Gig Harbor, with my wife and our dog. ",
+      "img": "/imgs/Metcalf_pic.jpeg",
       "linkedin": "https://www.linkedin.com/in/mt-metcalf/",
       "github": "https://github.com/Metty82"
     },
     {
       "name": "Ryan Lee",
       "bio": "",
-      "img": "/imgs/you.jpeg",
+      "img": "/imgs/lee.png",
       "linkedin": "https://www.linkedin.com/in/ryanyinlee/",
       "github": "https://github.com/ryanyinlee"
     },

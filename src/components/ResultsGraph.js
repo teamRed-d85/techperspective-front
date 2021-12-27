@@ -9,7 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import faker from 'faker';
+
 
 ChartJS.register(
   CategoryScale,
@@ -32,25 +32,29 @@ export const options = {
     },
   },
 };
+export default function ResultsGraph(props) {
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
+if (!props.surveyToGraph){
+  return null
+}
 
-export const data = {
+console.log(props.surveyToGraph)
+
+
+
+
+const data = {
   labels,
   datasets: [
     {
-      label: 'Dataset 1',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      label: 'Number of Questions Answered True',
+      data: props.surveyToGraph,
+      backgroundColor: '#EA4444',
     },
   ],
 };
 
-export default function ResultsGraph () {
+
   return <Bar options={options} data={data} />;
 }

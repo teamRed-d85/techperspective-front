@@ -17,28 +17,38 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeSurvey: null,
       surveyData: [],
       surveyId: null,
-      error: false
+      error: false,
+      surveyToGraph: []
     }
   }
-
+  graphResults = (obj) =>{
+    this.setState({surveyToGraph: obj})
+  }
   /* Grab survey data from server, which grabs from db */
   getSavedSurvey = async () => {
     let url = `${process.env.REACT_APP_SERVER_URL}/survey`
+    // console.log("getSavedSurvey url is: " + url);
+    
     try {
       let result = await axios.get(url);
+      // console.log("The surveydata.data is before setting state is: " + this.state.surveyData)
       this.setState({ surveyData: result.data });
       this.setState({error: false})
+      // console.log("The surveydata.data is: " + JSON.stringify(this.state.surveyData));
     } catch (error) {
       console.error("Data receive error: " + error);
       this.setState({ error: true });
     }
+
   }
 
   /* Ping server to delete survey data from DB */
   deleteSavedSurvey = async (id) => {
   let url = `${process.env.REACT_APP_SERVER_URL}/survey`
+  // console.log("deleteSavedSurvey url is: " + url);
     try {
       await axios.delete(url);
       const updatedSurveys = this.state.surveyData.filter((survey)=> survey._id !== id);
@@ -50,14 +60,44 @@ class App extends Component {
     }
   }
 
-   /* Ping server to create a new survey */
-  // createNewSurvey = async () => {
-  // let url = `${process.env.REACT_APP_SERVER_URL}/survey`
-  // try {
-  //   await axios.post(url);
-  //   const newSurvey =
-  // }
-  // }
+  /* Ping server to create a new survey ID to enter into the survey Iframe*/
+  createNewSurvey = async () => {
+    console.log('new survey button works');
+    let url = `${process.env.REACT_APP_SERVER_URL}/jotform`
+    try {
+      const newSurveyObj = await axios.post(url);
+      this.setState({ activeSurvey: newSurveyObj.data });
+
+    } catch (error) {
+      console.log(error, 'could not create new survey');
+    }
+  }
+
+  getActiveSurvey = async () => {
+    const url = `${process.env.REACT_APP_SERVER_URL}/active`
+    try {
+      const activeSurvey = await axios.get(url);
+      this.setState({ activeSurvey: activeSurvey.data });
+    } catch (error) {
+      console.log(error, 'No Active Survey');
+    }
+  }
+
+  putActiveSurvey = async () => {
+    const url = `${process.env.REACT_APP_SERVER_URL}/survey`
+
+    console.log(this.state.activeSurvey);
+    this.state.activeSurvey.active = false;
+    console.log(this.state.activeSurvey);
+
+    try {
+      await axios.post(url, this.state.activeSurvey);
+    } catch (error) {
+      console.log(error, 'could not post survey');
+    }
+  }
+
+  /* Ping Jotform to clone a survey for the next class */
 
 
 //Adds Auth0 Integration
@@ -75,6 +115,10 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.getSavedSurvey();
+    this.getActiveSurvey();
+  }
 
 
   render() {
@@ -82,11 +126,12 @@ class App extends Component {
       <>
         <Router>
           <Header />
+          {/* <Results surveyData={this.state.surveyData} getSavedSurvey= {this.getSavedSurvey} /> */}
           <Routes>
             <Route exact path="/" element={<Survey />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route  path="/results" element={<Results getSavedSurvey = {this.getSavedSurvey} surveyData = {this.state.surveyData} />} />
-            {/* <Route path='/aboutus' element={<AboutUs />} /> */}
+            <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey}/>} />
+            <Route path="/results" element={<Results surveyToGraph= {this.state.surveyToGraph} getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
+            <Route path="/survey" element={<Survey activeSurvey={this.state.activeSurvey} />} />
           </Routes>
         </Router>
       </>
