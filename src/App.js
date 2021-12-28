@@ -91,15 +91,15 @@ class App extends Component {
   }
 
   getActiveSurvey = async () => {
-    if (this.props.auth0.isAuthenticated) {
-      const tokenResponse = await this.props.auth0.getIdTokenClaims();
-      const jwt = tokenResponse.__raw;
-
+    // if (this.props.auth0.isAuthenticated) {
+    //   const tokenResponse = await this.props.auth0.getIdTokenClaims();
+    //   const jwt = tokenResponse.__raw;
+    // }
       const axiosRequestConfig = {
         method: 'get',
         baseURL: process.env.REACT_APP_SERVER_URL,
         url: `/active`,
-        headers: { "Authorization": `Bearer ${jwt}` }
+        // headers: { "Authorization": `Bearer ${jwt}` }
       }
       // const url = `${process.env.REACT_APP_SERVER_URL}/active`
       try {
@@ -108,7 +108,7 @@ class App extends Component {
       } catch (error) {
         console.log(error, 'No Active Survey');
       }
-    }
+    
   }
 
   putActiveSurvey = async () => {
@@ -143,10 +143,10 @@ class App extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.getSavedSurvey();
-  //   this.getActiveSurvey();
-  // }
+  componentDidMount() {
+    // this.getSavedSurvey();
+    this.getActiveSurvey();
+  }
 
 
   render() {
