@@ -18,7 +18,7 @@ ReactDOM.render(
       redirectUri={process.env.REACT_APP_AUTH_REDIRECT_URI}
     >
     <App />
-    </Auth0Provider>,
+    </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
