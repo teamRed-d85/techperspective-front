@@ -6,6 +6,7 @@ class ConfirmModal extends Component {
     handleConfirm = () => {
         this.props.putActiveSurvey();
         this.props.closeModal();
+        
     }
     render() {
         return (

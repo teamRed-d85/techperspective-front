@@ -111,18 +111,39 @@ class App extends Component {
     
   }
 
+  /* Archive the survey */
+
   putActiveSurvey = async () => {
+    if (this.props.auth0.isAuthenticated) {
+      const tokenResponse = await this.props.auth0.getIdTokenClaims();
+      const jwt = tokenResponse.__raw;
+
+      console.log(this.state.activeSurvey);
+      this.state.activeSurvey.active = false;
+      console.log(this.state.activeSurvey);
+
+      const axiosRequestConfig = {
+        method: 'post',
+        baseURL: process.env.REACT_APP_SERVER_URL,
+        url: `/survey`,
+        data: this.state.activeSurvey,
+        headers: { "Authorization": `Bearer ${jwt}` }
+        
+      }
+
     const url = `${process.env.REACT_APP_SERVER_URL}/survey`
 
-    console.log(this.state.activeSurvey);
-    this.state.activeSurvey.active = false;
-    console.log(this.state.activeSurvey);
 
-    try {
-      await axios.post(url, this.state.activeSurvey);
-    } catch (error) {
-      console.log(error, 'could not post survey');
+
+      try {
+      // await axios.post(url, this.state.activeSurvey);
+      await axios(axiosRequestConfig);
+      this.getActiveSurvey();
+      } catch (error) {
+      console.log(error, 'could not archive survey');
+      }
     }
+    window.location.reload();
   }
 
   /* Ping Jotform to clone a survey for the next class */

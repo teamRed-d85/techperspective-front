@@ -10,7 +10,7 @@ class ActiveSurveyContainer extends Component {
         return (
             <>
                 {this.props.activeSurvey === null && <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />}
-                {this.props.activeSurvey && <ActiveSurvey graphResults={this.props.graphResults} activeSurvey={this.props.activeSurvey} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />}
+                {this.props.activeSurvey && <ActiveSurvey graphResults={this.props.graphResults} activeSurvey={this.props.activeSurvey} openModal={this.props.openModal} getActiveSurvey={this.props.getActiveSurvey} />}
             </>
         )
     }

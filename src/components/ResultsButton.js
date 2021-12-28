@@ -13,7 +13,7 @@ export default class ResultsButton extends Component {
             // <Button variant="secondary">Display Results</Button>
             <>
             <Link to="/Results">
-            <Button onClick= {this.handleClick}variant="secondary">Get Results</Button>
+            <Button onClick= {this.handleClick}variant="secondary">View Results</Button>
             </Link>
             {/* <ResultsGraph /> */}
             </>
