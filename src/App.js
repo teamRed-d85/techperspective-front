@@ -33,7 +33,6 @@ class App extends Component {
     if (this.props.auth0.isAuthenticated) {
       const tokenResponse = await this.props.auth0.getIdTokenClaims();
       const jwt = tokenResponse.__raw;
-      console.log("jwt is... ", jwt);
 
       const axiosRequestConfig = {
         method: 'get',
@@ -41,16 +40,11 @@ class App extends Component {
         url: '/survey',
         headers: { "Authorization": `Bearer ${jwt}` }
       }
-      console.log(axiosRequestConfig);
-      // let url = `${process.env.REACT_APP_SERVER_URL}/survey`
-      // console.log("getSavedSurvey url is: " + url);
 
       try {
         let result = await axios(axiosRequestConfig);
-        // console.log("The surveydata.data is before setting state is: " + this.state.surveyData)
         this.setState({ surveyData: result.data });
         this.setState({ error: false })
-        // console.log("The surveydata.data is: " + JSON.stringify(this.state.surveyData));
       } catch (error) {
         console.error("Data receive error: " + error);
         this.setState({ error: true });
@@ -60,17 +54,26 @@ class App extends Component {
 
   /* Ping server to delete survey data from DB */
   deleteSavedSurvey = async (id) => {
-    // console.log('clicked delete button', id);
-    let url = `${process.env.REACT_APP_SERVER_URL}/survey/${id}`
-  // console.log("deleteSavedSurvey url is: " + url);
-    try {
-      await axios.delete(url);
-      const updatedSurveys = this.state.surveyData.filter((survey)=> survey._id !== id);
-      this.setState({ surveyData: updatedSurveys});
+    if (this.props.auth0.isAuthenticated) {
+      const tokenResponse = await this.props.auth0.getIdTokenClaims();
+      const jwt = tokenResponse.__raw;
 
-    } catch (error ) {
-      console.error("Delete error: " + error);
-      this.setState({ error: true });
+      const axiosRequestConfig = {
+        method: 'delete',
+        baseURL: process.env.REACT_APP_SERVER_URL,
+        url: `/survey/${id}`,
+        headers: { "Authorization": `Bearer ${jwt}` }
+      }
+
+      try {
+        await axios(axiosRequestConfig);
+        const updatedSurveys = this.state.surveyData.filter((survey) => survey._id !== id);
+        this.setState({ surveyData: updatedSurveys });
+
+      } catch (error) {
+        console.error("Delete error: " + error);
+        this.setState({ error: true });
+      }
     }
   }
 
