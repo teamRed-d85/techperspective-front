@@ -45,3 +45,8 @@ h1, h2 {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
+#authLogInButton {
+  margin-left:auto;
+  margin-right:auto;
+}
