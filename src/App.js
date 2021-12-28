@@ -22,7 +22,7 @@ class App extends Component {
       surveyData: [],
       surveyId: null,
       error: false,
-      surveyToGraph: []
+      surveyToGraph: []      
     }
   }
   graphResults = (obj) =>{
