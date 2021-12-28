@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button';
 
-export default class AdminButton extends Component {
+class AdminButton extends Component {
     render() {
         return (
             <div>
@@ -10,3 +10,6 @@ export default class AdminButton extends Component {
         )
     }
 }
+
+export default AdminButton;
+
