@@ -3,8 +3,9 @@ import Header from './components/Header';
 import Survey from './components/Survey';
 import Admin from './components/Admin';
 import Results from './components/Results';
+import Landing from './components/Landing';
 // import AboutUs from './components/AboutUs';
-// import { withAuth0 } from '@auth0/auth0-react';
+import { withAuth0 } from '@auth0/auth0-react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -29,20 +30,32 @@ class App extends Component {
   }
   /* Grab survey data from server, which grabs from db */
   getSavedSurvey = async () => {
-    let url = `${process.env.REACT_APP_SERVER_URL}/survey`
-    // console.log("getSavedSurvey url is: " + url);
-    
-    try {
-      let result = await axios.get(url);
-      // console.log("The surveydata.data is before setting state is: " + this.state.surveyData)
-      this.setState({ surveyData: result.data });
-      this.setState({error: false})
-      // console.log("The surveydata.data is: " + JSON.stringify(this.state.surveyData));
-    } catch (error) {
-      console.error("Data receive error: " + error);
-      this.setState({ error: true });
-    }
+    if (this.props.auth0.isAuthenticated) {
+      const tokenResponse = await this.props.auth0.getIdTokenClaims();
+      const jwt = tokenResponse.__raw;
+      console.log("jwt is... ", jwt);
 
+      const axiosRequestConfig = {
+        method: 'get',
+        baseURL: process.env.REACT_APP_SERVER_URL,
+        url: '/survey',
+        headers: { "Authorization": `Bearer ${jwt}` }
+      }
+      console.log(axiosRequestConfig);
+      // let url = `${process.env.REACT_APP_SERVER_URL}/survey`
+      // console.log("getSavedSurvey url is: " + url);
+
+      try {
+        let result = await axios(axiosRequestConfig);
+        // console.log("The surveydata.data is before setting state is: " + this.state.surveyData)
+        this.setState({ surveyData: result.data });
+        this.setState({ error: false })
+        // console.log("The surveydata.data is: " + JSON.stringify(this.state.surveyData));
+      } catch (error) {
+        console.error("Data receive error: " + error);
+        this.setState({ error: true });
+      }
+    }
   }
 
   /* Ping server to delete survey data from DB */
@@ -116,10 +129,10 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    this.getSavedSurvey();
-    this.getActiveSurvey();
-  }
+  // componentDidMount() {
+  //   this.getSavedSurvey();
+  //   this.getActiveSurvey();
+  // }
 
 
   render() {
@@ -129,8 +142,8 @@ class App extends Component {
           <Header />
           {/* <Results surveyData={this.state.surveyData} getSavedSurvey= {this.getSavedSurvey} /> */}
           <Routes>
-            <Route exact path="/" element={<Survey />} />
-            <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey}/>} />
+            <Route exact path="/" element={<Landing />} />
+            <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey} getSavedSurvey={this.getSavedSurvey} />} />
             <Route path="/results" element={<Results surveyToGraph= {this.state.surveyToGraph} getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
             <Route path="/survey" element={<Survey activeSurvey={this.state.activeSurvey} />} />
           </Routes>
@@ -140,6 +153,6 @@ class App extends Component {
   }
 }
 
-// export default withAuth0(App);
-export default App;
+export default withAuth0(App);
+// export default App;
 

@@ -5,6 +5,8 @@ import AllResultsButton from './AllResultsButton';
 import NewSurveyButton from './NewSurveyButton';
 import ActiveSurvey from './ActiveSurvey';
 import ConfirmModal from './ConfirmModal';
+import { withAuth0 } from '@auth0/auth0-react';
+import LoginButton from './LoginButton';
 
 
 class Admin extends Component {
@@ -23,18 +25,28 @@ class Admin extends Component {
         this.setState({ showModal: true })
     }
 
+    componentDidMount() {
+        // this.props.getSavedSurvey();
+        this.props.getActiveSurvey();
+    }
+
     render() {
+        console.log("we are looking at Admin.js", this.props.auth0.isAuthenticated);
         return (
             <>
-                <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} />
-                <AdminHeader />
-                {this.props.activeSurvey === null && <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />}
-                {this.props.activeSurvey && <ActiveSurvey activeSurvey={this.props.activeSurvey} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey}/>}
-                <SurveySummaryList graphResults = {this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey}/>
-                <AllResultsButton />
+                {this.props.auth0.isAuthenticated ?
+                    <>
+                        <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} />
+                        <AdminHeader />
+                        {this.props.activeSurvey === null && <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />}
+                        {this.props.activeSurvey && <ActiveSurvey activeSurvey={this.props.activeSurvey} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />}
+                        <SurveySummaryList getSavedSurvey={this.props.getSavedSurvey} graphResults={this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey} />
+                        <AllResultsButton />
+                    </>
+                    : <LoginButton />}
             </>
         )
     }
 }
 
-export default Admin;
+export default withAuth0(Admin);
