@@ -43,9 +43,7 @@ class Admin extends Component {
                     <>
                         <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} />
                         <AdminHeader />
-                        <ActiveSurveyContainer activeSurvey={this.props.activeSurvey} createNewSurvey={this.props.createNewSurvey} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />
-                        {/* {this.props.activeSurvey === null && <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />}
-                        {this.props.activeSurvey && <ActiveSurvey activeSurvey={this.props.activeSurvey} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />} */}
+                        <ActiveSurveyContainer activeSurvey={this.props.activeSurvey} createNewSurvey={this.props.createNewSurvey} graphResults={this.props.graphResults} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />
                         <SurveySummaryList getSavedSurvey={this.props.getSavedSurvey} graphResults={this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey} />
                         <AllResultsButton />
                     </>
