@@ -13,7 +13,7 @@ class ActiveSurvey extends Component {
                 <Card.Body>
                     <Row md={6} style={{ justifyContent: 'space-around' }}>
 
-                        <Button variant="primary" onClick={this.props.getActiveSurvey} style={{ width: '11rem' }}>Refresh</Button>
+                        <Button variant="primary" onClick={this.props.getActiveSurvey} style={{ width: '11rem' }}>🔄</Button>
                         <Card.Title>{this.props.activeSurvey.createdOn}</Card.Title>
                         <Card.Text>
                             Survey ID: {this.props.activeSurvey.surveyID}
