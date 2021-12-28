@@ -143,8 +143,7 @@ class App extends Component {
       console.log(error, 'could not archive survey');
       }
     }
-
-
+    window.location.reload();
   }
 
   /* Ping Jotform to clone a survey for the next class */
