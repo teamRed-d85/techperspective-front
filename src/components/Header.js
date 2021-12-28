@@ -32,7 +32,7 @@ export default class Header extends Component {
                 <Button variant="primary">Show Survey</Button>
               </Link>
 
-              <Link class="headerButtonAdmin" to="/Admin">
+              <Link type="button" class="headerButtonAdmin" to="/Admin">
                 <Button variant="warning">Admin Panel</Button>
               </Link>
               <br></br>
