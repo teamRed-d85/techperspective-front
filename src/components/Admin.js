@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import AdminHeader from './AdminHeader';
 import SurveySummaryList from './SurveySummaryList';
-import AllResultsButton from './AllResultsButton';
 import ActiveSurveyContainer from './ActiveSurveyContainer';
 import ConfirmModal from './ConfirmModal';
 import { withAuth0 } from '@auth0/auth0-react';
@@ -39,13 +37,12 @@ class Admin extends Component {
         console.log("we are looking at Admin.js", this.props.auth0.isAuthenticated);
         return (
             <>
+            <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} />
                 {this.props.auth0.isAuthenticated ?
                     <>
-                        <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} />
-                        <AdminHeader />
+                        
                         <ActiveSurveyContainer activeSurvey={this.props.activeSurvey} createNewSurvey={this.props.createNewSurvey} graphResults={this.props.graphResults} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />
                         <SurveySummaryList getSavedSurvey={this.props.getSavedSurvey} graphResults={this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey} />
-                        <AllResultsButton />
                     </>
                     : <LoginButton />}
             </>

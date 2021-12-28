@@ -25,7 +25,7 @@ class ActiveSurvey extends Component {
                         <Button variant="secondary" style={{ width: '11rem' }} onClick={this.props.graphResults}>Results</Button>
                         </Link> */}
                         <ResultsButton surveyData = {this.props.activeSurvey.results} graphResults = {this.props.graphResults}/>
-                        <Button variant="success" style={{ width: '11rem' }} onClick={this.props.openModal}>Survey Complete</Button>
+                        <Button variant="success" style={{ width: '11rem' }} onClick={this.props.openModal}>Archive Survey</Button>
                     </Row>
                 </Card.Body>
             </Card>
