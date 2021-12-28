@@ -21,13 +21,6 @@ class Admin extends Component {
     openModal = () => {
         this.setState({ showModal: true })
     }
-    // useEffect = () => {
-
-    // }
-
-    useEffect() {
-
-    }
 
     componentDidMount() {
         console.log(this.props.auth0.isAuthenticated);
@@ -44,7 +37,7 @@ class Admin extends Component {
                         <ActiveSurveyContainer activeSurvey={this.props.activeSurvey} createNewSurvey={this.props.createNewSurvey} graphResults={this.props.graphResults} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />
                         <SurveySummaryList getSavedSurvey={this.props.getSavedSurvey} graphResults={this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey} />
                     </>
-                    : <LoginButton />}
+                    : <LoginButton id="authLogInButton"/>}
             </>
         )
     }
