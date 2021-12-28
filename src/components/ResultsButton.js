@@ -10,12 +10,12 @@ export default class ResultsButton extends Component {
       }
     render() {
         return (
-            // <Button variant="secondary">Display Results</Button>
+            
             <>
             <Link to="/Results">
             <Button onClick= {this.handleClick}variant="secondary">View Results</Button>
             </Link>
-            {/* <ResultsGraph /> */}
+            
             </>
         )
     }
