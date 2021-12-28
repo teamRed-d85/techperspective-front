@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Survey from './components/Survey';
 import Admin from './components/Admin';
 import Results from './components/Results';
-import Landing from './components/Landing';
+// import Landing from './components/Landing';
 // import AboutUs from './components/AboutUs';
 import { withAuth0 } from '@auth0/auth0-react';
 import {
@@ -156,7 +156,7 @@ class App extends Component {
           <Header />
           {/* <Results surveyData={this.state.surveyData} getSavedSurvey= {this.getSavedSurvey} /> */}
           <Routes>
-            <Route exact path="/" element={<Landing />} />
+            {/* <Route exact path="/" element={<Landing />} /> */}
             <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey} getSavedSurvey={this.getSavedSurvey} />} />
             <Route path="/results" element={<Results surveyToGraph= {this.state.surveyToGraph} getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
             <Route path="/survey" element={<Survey activeSurvey={this.state.activeSurvey} />} />
