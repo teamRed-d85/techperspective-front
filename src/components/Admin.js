@@ -3,6 +3,7 @@ import AdminHeader from './AdminHeader';
 import SurveySummaryList from './SurveySummaryList';
 import AllResultsButton from './AllResultsButton';
 import NewSurveyButton from './NewSurveyButton';
+import ActiveSurveyContainer from './ActiveSurveyContainer';
 import ActiveSurvey from './ActiveSurvey';
 import ConfirmModal from './ConfirmModal';
 import { withAuth0 } from '@auth0/auth0-react';
@@ -24,12 +25,18 @@ class Admin extends Component {
     openModal = () => {
         this.setState({ showModal: true })
     }
+    // useEffect = () => {
 
-    componentDidMount() {
-        // this.props.getSavedSurvey();
-        this.props.getActiveSurvey();
+    // }
+
+    useEffect() {
+
     }
 
+    componentDidMount() {
+        console.log(this.props.auth0.isAuthenticated);
+        this.props.getActiveSurvey();
+    }
     render() {
         console.log("we are looking at Admin.js", this.props.auth0.isAuthenticated);
         return (
@@ -38,8 +45,9 @@ class Admin extends Component {
                     <>
                         <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} />
                         <AdminHeader />
-                        {this.props.activeSurvey === null && <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />}
-                        {this.props.activeSurvey && <ActiveSurvey activeSurvey={this.props.activeSurvey} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />}
+                        <ActiveSurveyContainer activeSurvey={this.props.activeSurvey} createNewSurvey={this.props.createNewSurvey} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />
+                        {/* {this.props.activeSurvey === null && <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />}
+                        {this.props.activeSurvey && <ActiveSurvey activeSurvey={this.props.activeSurvey} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />} */}
                         <SurveySummaryList getSavedSurvey={this.props.getSavedSurvey} graphResults={this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey} />
                         <AllResultsButton />
                     </>

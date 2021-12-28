@@ -91,12 +91,23 @@ class App extends Component {
   }
 
   getActiveSurvey = async () => {
-    const url = `${process.env.REACT_APP_SERVER_URL}/active`
-    try {
-      const activeSurvey = await axios.get(url);
-      this.setState({ activeSurvey: activeSurvey.data });
-    } catch (error) {
-      console.log(error, 'No Active Survey');
+    if (this.props.auth0.isAuthenticated) {
+      const tokenResponse = await this.props.auth0.getIdTokenClaims();
+      const jwt = tokenResponse.__raw;
+
+      const axiosRequestConfig = {
+        method: 'get',
+        baseURL: process.env.REACT_APP_SERVER_URL,
+        url: `/active`,
+        headers: { "Authorization": `Bearer ${jwt}` }
+      }
+      // const url = `${process.env.REACT_APP_SERVER_URL}/active`
+      try {
+        const activeSurvey = await axios(axiosRequestConfig);
+        this.setState({ activeSurvey: activeSurvey.data });
+      } catch (error) {
+        console.log(error, 'No Active Survey');
+      }
     }
   }
 
