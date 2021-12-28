@@ -131,9 +131,6 @@ class App extends Component {
         
       }
 
-    const url = `${process.env.REACT_APP_SERVER_URL}/survey`
-
-
 
       try {
       // await axios.post(url, this.state.activeSurvey);
