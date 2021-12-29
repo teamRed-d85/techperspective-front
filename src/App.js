@@ -89,6 +89,8 @@ class App extends Component {
     }
   }
 
+  /* Ping Jotform to clone a survey for the next class */
+
   getActiveSurvey = async () => {
     // if (this.props.auth0.isAuthenticated) {
     //   const tokenResponse = await this.props.auth0.getIdTokenClaims();
@@ -131,7 +133,7 @@ class App extends Component {
       }
 
       try {
-      // await axios.post(url, this.state.activeSurvey);
+      
       await axios(axiosRequestConfig);
       this.getActiveSurvey();
       } catch (error) {
@@ -141,7 +143,7 @@ class App extends Component {
     window.location.reload();
   }
 
-  /* Ping Jotform to clone a survey for the next class */
+  
 
 
 //Adds Auth0 Integration
@@ -160,7 +162,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.getSavedSurvey();
+    
     this.getActiveSurvey();
   }
 
@@ -173,7 +175,7 @@ class App extends Component {
           <Routes>
             <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey} getSavedSurvey={this.getSavedSurvey} />} />
             <Route path="/results" element={<Results surveyToGraph= {this.state.surveyToGraph} getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
-            <Route path="/survey" element={<Survey activeSurvey={this.state.activeSurvey} />} />
+            <Route path="/" element={<Survey activeSurvey={this.state.activeSurvey} />} />
             <Route path="/about" element={<AboutUs />} />
           </Routes>
         </Router>

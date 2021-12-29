@@ -13,7 +13,7 @@ export default class ResultsButton extends Component {
             
             <>
             <Link to="/Results">
-            <Button onClick= {this.handleClick}variant="secondary">View Results</Button>
+            <Button style={{ height: '3rem', width: '11rem' }} onClick= {this.handleClick} variant="dark">View Results</Button>
             </Link>
             
             </>
