@@ -1,13 +1,10 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-// import LoginButton from './LoginButton';
-// import LogoutButton from './LogoutButton';
 import { withAuth0 } from '@auth0/auth0-react'
-// import AdminButton from './AdminButton.js';
-// import Navbar from 'react-bootstrap/Navbar';
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 class Header extends Component {
   handleLoginClick = () => {
@@ -20,30 +17,40 @@ class Header extends Component {
 
   render() {
     return (
-      <>
-        <Card border="dark">
+      <>  
+          <Row id="headerBackground" md={4} style={{justifyContent:"space-between"}}>
+          
+            <Col>
           <Image
             id="headerImage"
             src="cf-logo-horizontal-2-color-white.png"
           />
+          </Col>
+          
           {this.props.auth0.isAuthenticated ? 
-
-
-
-          <Card.Body>
-            <div class="container">
-              <Link class="headerButtonSurvey" to="/Survey">
-                <Button variant="primary">Show Survey</Button>
+       
+            <div  class="container">
+              <Col>
+              <Link class="headerButtonSurvey" to="/">
+                <Button style={{height: '3rem', width: '11rem', backgroundColor: "#ea4444", marginLeft: "1rem", marginRight: "1rem"}} variant="primary">Show Survey</Button>
               </Link>
-              
+              </Col>
+
+              <Col>
+              <br></br>
+              </Col>
+
+              <Col>
               <Link type="button" class="headerButtonAdmin" to="/Admin">
-                <Button variant="warning">Admin Panel</Button>
+                <Button style={{height: '3rem', width: '11rem', marginLeft: "1rem"}} variant="light">Admin Panel</Button>
               </Link>
+              </Col>
               
               <br></br>
             </div>
-          </Card.Body> : <></>}
-        </Card>
+            
+           : <></>}
+        </Row>
 
       </>
     );

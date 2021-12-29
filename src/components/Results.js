@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import ResultsHeader from './ResultsHeader';
 import ResultsGraph from './ResultsGraph';
-// console.log("In results we see surveyData as: " + this.props.surveyData);
+
 
 class Results extends Component {
     
@@ -9,7 +9,9 @@ class Results extends Component {
         return (
             <>  
                 <ResultsHeader />
+                <div class="chart-container" style={{ margin: "auto", display: "flex", justifyContent:"center", position:"relative", height:"40vh", width:"80vw"}}> 
                 <ResultsGraph surveyToGraph={this.props.surveyToGraph} />
+                </div>
             </>
         )
     }
