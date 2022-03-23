@@ -35,11 +35,11 @@ export const options = {
 export default function ResultsGraph(props) {
 
 const labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
-if (!props.surveyData){
+if (!props.surveyToGraph){
   return null
 }
 
-console.log(props.surveyData)
+console.log(props.surveyToGraph)
 
 
 
@@ -49,12 +49,15 @@ const data = {
   datasets: [
     {
       label: 'Number of Questions Answered True',
-      data: props.surveyData.Results,
+      data: props.surveyToGraph,
       backgroundColor: '#EA4444',
     },
   ],
 };
 
 
-  return <Bar options={options} data={data} />;
+  return <Bar    data={data}
+  width={100}
+  height={50}
+  options={{ maintainAspectRatio: true }} />;
 }

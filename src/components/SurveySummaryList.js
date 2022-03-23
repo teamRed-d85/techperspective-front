@@ -6,6 +6,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 export default class SurveySummaryList extends Component {
+
+  componentDidMount() {
+    this.props.getSavedSurvey();
+  } 
   render() {
     return (
       <>
@@ -18,9 +22,11 @@ export default class SurveySummaryList extends Component {
                   <Row>
                     <Col>Submission Count: {info.submissionCount}</Col>
                     <Col>Survey ID: {info.surveyID}</Col>
-                    <Col><ResultsButton /></Col>
                     <Col>
-                      <DeleteButton />
+                      <ResultsButton surveyData = {info.results} graphResults = {this.props.graphResults}/>
+                    </Col>
+                    <Col>
+                      <DeleteButton surveyData={info} deleteSavedSurvey={this.props.deleteSavedSurvey} />
                     </Col>
                   </Row>
                 </Accordion.Body>
