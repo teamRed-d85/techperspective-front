@@ -6,7 +6,7 @@
 
 ## **The vision**
 
-![Survey](./assets/survey.png)
+![Survey](./public/assets/survey.png)
 
 - The vision compiling diversity data and using it as a teaching tool to bring to light internal biases and ways to be more conscious with regard to inclusivity and diversity .
 
@@ -20,7 +20,7 @@
 
 ### **The Project Scope (In/Out)**
 
-![Survey Admin](./assets/surveyadmin.png)
+![Survey Admin](./public/assets/surveyadmin.png)
 
 #### *In Scope*
 
@@ -39,7 +39,7 @@
 
 ### Minimum Viable Product
 
-![Survey Questions](./assets/surveyquestion.png)
+![Survey Questions](./public/assets/surveyquestion.png)
 
 - **What will your MVP functionality be?**
   - Access and complete the survey.
@@ -79,7 +79,7 @@
 
 ### **Data Flow**
 
-![Data flow for the survey](./assets/surveydata.png)
+![Data flow for the survey](./public/assets/surveydata.png)
 
 ### DataBase Schemas
 
@@ -130,7 +130,7 @@ ClassSurvey = {
 
 ## **Team Meltingpot-Data**
 
-![MPD](./assets/MeltingpotData.jpg)
+![MPD](./public/assets/MeltingpotData.jpg)
 
 ## Our Cooperation Plan
 
@@ -236,7 +236,11 @@ ClassSurvey = {
 ### **Contact the Team**
 
 [Follow Joey on LinkedIn](https://www.linkedin.com/in/jmhernandez2six/)
+
 [Follow Erik on LinkedIn](https://www.linkedin.com/in/erikksavage/)
+
 [Follow Emily on LinkedIn](https://www.linkedin.com/in/emily-landers-/)
+
 [Follow Michael on LinkedIn](https://www.linkedin.com/in/mt-metcalf/)
+
 [Follow Ryan on LinkedIn](https://www.linkedin.com/in/ryanyinlee/)
