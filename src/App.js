@@ -78,12 +78,10 @@ class App extends Component {
 
   /* Ping server to create a new survey ID to enter into the survey Iframe*/
   createNewSurvey = async () => {
-    console.log('new survey button works');
     let url = `${process.env.REACT_APP_SERVER_URL}/jotform`
     try {
       const newSurveyObj = await axios.post(url);
       this.setState({ activeSurvey: newSurveyObj.data });
-
     } catch (error) {
       console.log(error, 'could not create new survey');
     }

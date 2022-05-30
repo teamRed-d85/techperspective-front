@@ -30,7 +30,7 @@ class Header extends Component {
                           <Link className="headerButtonSurvey" to="/">
                               <Button style={{height: '3rem', width: '9rem', backgroundColor: "#ea4444", marginLeft: "1rem"}} variant="primary">Show Survey</Button>
                           </Link>
-                          <Link className="headerButtonSurvey" to="/">
+                          <Link className="headerButtonSurvey" to="/admin">
                               <Button style={{height: '3rem', width: '9rem', marginLeft: "1rem"}} variant="light">Admin Panel</Button>
                           </Link>
                           <Link className="headerButtonSurvey" to="/">
