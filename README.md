@@ -1,4 +1,5 @@
 # **The Tech Prospective Survey**
+[Team Collaboration Agreement](https://docs.google.com/document/d/1Ei7RcvOaHzeyUDbDCYfNEVa91ktPXAih2gQk4I0Fmmc/edit#heading=h.y52avp42q2jv)
 
 ## **Survey URL**
 
@@ -233,14 +234,3 @@ ClassSurvey = {
 
 - This amazing final project was thoughtfully created and masterfully crafted by the master-minds of **Erik Savage**, **Michael Metcalf**, **Joey Hernandez**, **Emily Landers**, and **Ryan Lee**!
 
-### **Contact the Team**
-
-[Follow Joey on LinkedIn](https://www.linkedin.com/in/jmhernandez2six/)
-
-[Follow Erik on LinkedIn](https://www.linkedin.com/in/erikksavage/)
-
-[Follow Emily on LinkedIn](https://www.linkedin.com/in/emily-landers-/)
-
-[Follow Michael on LinkedIn](https://www.linkedin.com/in/mt-metcalf/)
-
-[Follow Ryan on LinkedIn](https://www.linkedin.com/in/ryanyinlee/)
