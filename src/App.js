@@ -162,7 +162,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    
     this.getActiveSurvey();
   }
 
