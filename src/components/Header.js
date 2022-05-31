@@ -28,10 +28,10 @@ class Header extends Component {
                   {this.props.auth0.isAuthenticated ?
                       <>
                           <Link className="headerButtonSurvey" to="/">
-                              <Button style={{height: '3rem', width: '9rem', backgroundColor: "#ea4444", marginLeft: "1rem"}} variant="primary">Show Survey</Button>
+                              <Button style={{backgroundColor: "#ea4444", marginLeft: "1rem"}} variant="primary">Show Survey</Button>
                           </Link>
                           <Link className="headerButtonSurvey" to="/admin">
-                              <Button style={{height: '3rem', width: '9rem', marginLeft: "1rem"}} variant="light">Admin Panel</Button>
+                              <Button style={{marginLeft: "1rem"}} variant="light">Admin Panel</Button>
                           </Link>
                           <Link className="headerButtonSurvey" to="/">
                               <LogoutButton/>
