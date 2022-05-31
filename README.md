@@ -35,32 +35,53 @@
 
 ## How To Use **The Tech Perspective Survey**
 ## Step One
+Be sure you are in the directory in which you want these repos to live before you clone.
 
-- begin by running:
-- `git clone` then copy and paste `git@github.com:Meltingpot-Data/techperspective-front.git`
+Begin by running:
+`git clone https://github.com/teamRed-d85/techperspective-front.git`
 
-- Do the same for the backend repo:
-- `git clone` then copy and paste `git@github.com:Meltingpot-Data/techperspective-back.git`
+Do the same for the backend repo:
+`git clone https://github.com/teamRed-d85/techperspective-back.git`
 
 ## Step Two
 
-- run: `cd techperspective-front`
-- then (installs node modules): `npm install`
-- then (installs dependencies): `npm i express bootstrap nodemon cors dotenv mongoose jwt bcrypt base-64 supertest sqlite3 jsonwebtoken`
-- repeat **step two** for 'back'
+In your terminal and inside of the root directory of the project `cd techperspective-front`
+- then `npm install`
+- then `npm install`
+
+- repeat **step two** for 'techperspective-back'
 
 ## Step Three
 
-- Your are going to need to create a `.env` in order to use the server, follow the guide in the provided `.sample.env` file.
+- Your are going to need to create a `.env` file in your frontend and backend root directories. Below are the env variables you will need.
 
-## How to Use
+FRONT END!
+```
+REACT_APP_AUTH_DOMAIN=<your-value-here>
+REACT_APP_AUTH_CLIENT_ID=<your-value-here>
+REACT_APP_AUTH_REDIRECT_URI=<your-value-here>
+REACT_APP_SERVER_URL=<your-value-here>
+```
 
-- Click on the provided link here: [Survey Admin Portal](https://tech-perspective-survey.netlify.app/admin)
+BACK END!
+```
+MONGO_DB=mongodb+srv://<username>:<password>@cluster0.uj68i.mongodb.net/?retryWrites=true&w=majority
+JOTFORM_API=<your-value-here>
+JOTFORM_TEMPLATE=<your-value-here>
+JWKS_URI=<your-value-here>
+```
+
+You can obtain your JotForm API key from [JotForm](https://www.jotform.com/)
+1. Make an account
+2. Log in
+3. Click on profile icon picture in the top right and select `Settings`
+4. In the left column click `API` and then click the `Create New Key` button to generate an API key
+
 
 ## To start server
 
-- run: `npm start`
-*To test the server*
+- Within your backend root directory type `npm start` or `nodemon` if you have that installed globally
+This will start the backend services.
 
-- run: `npm run test`
-*To run the tests*
+- Within your frontend root directory type `npm run`
+This will start up your frontend React project files
