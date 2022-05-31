@@ -21,7 +21,7 @@ class App extends Component {
       surveyData: [],
       surveyId: null,
       error: false,
-      surveyToGraph: []      
+      surveyToGraph: [1, 1, 2, 3, 5, 1, 3, 4, 5, 1, 2, 4]
     }
   }
   graphResults = (obj) =>{
@@ -78,12 +78,10 @@ class App extends Component {
 
   /* Ping server to create a new survey ID to enter into the survey Iframe*/
   createNewSurvey = async () => {
-    console.log('new survey button works');
     let url = `${process.env.REACT_APP_SERVER_URL}/jotform`
     try {
       const newSurveyObj = await axios.post(url);
       this.setState({ activeSurvey: newSurveyObj.data });
-
     } catch (error) {
       console.log(error, 'could not create new survey');
     }
@@ -162,7 +160,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    
     this.getActiveSurvey();
   }
 

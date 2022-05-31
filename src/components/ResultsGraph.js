@@ -42,8 +42,6 @@ if (!props.surveyToGraph){
 console.log(props.surveyToGraph)
 
 
-
-
 const data = {
   labels,
   datasets: [
