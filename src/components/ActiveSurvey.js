@@ -9,10 +9,11 @@ class ActiveSurvey extends Component {
     render() {
         return (
             <Card>
-                <Card.Header as="h5">Active Survey</Card.Header>
+                <Card.Header as="h5">Active Survey</Card.Header> 
+                {/*change h5 name to Survey Name (ex. 301-d85*/}
                 <Card.Body>
                     <Row md={6} style={{ justifyContent: 'space-around' }}>
-
+                    {/* change refresh to "share link" button*/}
                         <Button variant="primary" onClick={this.props.getActiveSurvey} style={{ height: '3rem', width: '11rem' }}>Refresh</Button>
                         <Card.Title>{this.props.activeSurvey.createdOn}</Card.Title>
                         <Card.Text>
