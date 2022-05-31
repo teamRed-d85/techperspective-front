@@ -7,13 +7,11 @@
 
 ## **The vision**
 
-![Survey](./public/assets/survey.png)
-
 - The vision compiling diversity data and using it as a teaching tool to bring to light internal biases and ways to be more conscious with regard to inclusivity and diversity .
 
 ## **The Problem Domain**
 
-- This project will revolutionize the existing survey data, making it more user friendly and potentially caching historical data.
+- This project will revolutionize the existing survey data, making it more user friendly and caching historical data.
 
 ## **The Importance**
 
@@ -32,72 +30,10 @@
 - View data on a stylized graph.
 - Compare data by multiple students in one class.
 - See how many students participate in the survey.
+- Have multiple active surveys each being for an individual class
 
-#### *Out of Scope*
-
-- Data from other schools and students will not be visible.
-- New students' data from other schools cannot be added.
-
-### Minimum Viable Product
-
-![Survey Questions](./public/assets/surveyquestion.png)
-
-- **What will your MVP functionality be?**
-  - Access and complete the survey.
-  - Store immediate survey data in the DB.
-  - Render a stylized graph of the immediate data.
-
-### Stretch Goals
-
-- **What are your stretch goals?**
-  - Cache historical data.
-  - Develop a graph modeling historical data.
-  - Allow the user to access historical data and trends.
-- **What stretch goals are you going to aim for?**
-  - The ability to store historical data.
-
-## **Software Requirements**
-
-### **Functional Requirements**
-
-- User will be able to complete the survey and submit data.
-- User will be able to access a stylized graph of the immediate data.
-- User will be able to secure data and login information.
-
-### **Non-Functional Requirements**
-
-- **Security**
-  - Our app will use Auth0 to make sure we have authorized users
-  - This will allow us to track and personalize to our users
-  - Our backend will validate requests to make sure it is coming from our front end
-  - Managing the uses of our api and databases so only our users are able to access those resources
-
-- **Database**
-  - Each item belongs to a single location
-  - The two databases will be a Student database and a Class database
-    - There will be a identifier in the DB associated with the class
-  - Each student will have a single class
-
-### **Data Flow**
-
-![Data flow for the survey](./public/assets/surveydata.png)
-
-### DataBase Schemas
-
-```js
-
-ClassSurvey = {
-  ClassNumber : Number,
-  Identifier : String,
-  ClassCount : Number,
-  Instructor : String,
-  thumbnail : String, //url
-  note: String //optional
-}
-```
 
 ## How To Use **The Tech Perspective Survey**
-
 ## Step One
 
 - begin by running:
