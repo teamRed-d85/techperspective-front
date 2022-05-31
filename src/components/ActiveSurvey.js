@@ -11,9 +11,8 @@ class ActiveSurvey extends Component {
             <Card>
                 <Card.Header as="h5">Active Survey</Card.Header>
                 <Card.Body>
-                    <Row md={6} style={{ justifyContent: 'space-around' }}>
-
-                        <Button variant="primary" onClick={this.props.getActiveSurvey} style={{ height: '3rem', width: '11rem' }}>Refresh</Button>
+                    <Row md={6} style={{ justifyContent: 'space-around', alignItems: 'center' }}>
+                        <Button style={{ maxHeight: 36 }} variant="primary" onClick={this.props.getActiveSurvey}>Share</Button>
                         <Card.Title>{this.props.activeSurvey.createdOn}</Card.Title>
                         <Card.Text>
                             Survey ID: {this.props.activeSurvey.surveyID}
@@ -23,7 +22,7 @@ class ActiveSurvey extends Component {
                         </Card.Text>
 
                         <ResultsButton surveyData = {this.props.activeSurvey.results} graphResults = {this.props.graphResults}/>
-                        <Button variant="outline-dark" style={{ height: '3rem', width: '11rem' }} onClick={this.props.openModal}>Archive Survey</Button>
+                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }}variant="outline-dark" onClick={this.props.openModal}>Archive Survey</Button>
                     </Row>
                 </Card.Body>
             </Card>
