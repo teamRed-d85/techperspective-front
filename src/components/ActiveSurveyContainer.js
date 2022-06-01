@@ -11,7 +11,11 @@ class ActiveSurveyContainer extends Component {
         return (
             <>
             <br></br>
+
             <div style={{ justifyContent:"center" }} >
+            
+                {this.props.activeSurvey && <ActiveSurvey graphResults={this.props.graphResults} activeSurvey={this.props.activeSurvey} openModal={this.props.openModal} getActiveSurvey={this.props.getActiveSurvey} />}
+
             
                 <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />
 
