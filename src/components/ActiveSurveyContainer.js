@@ -1,7 +1,6 @@
 import { Component } from "react";
-import NewSurveyButton from "./NewSurveyButton";
 import ActiveSurvey from "./ActiveSurvey"
-import {Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 
 class ActiveSurveyContainer extends Component {
     componentDidMount() {
@@ -10,26 +9,21 @@ class ActiveSurveyContainer extends Component {
     render() {
         return (
             <>
-            <br></br>
+                <br></br>
 
-            <div style={{ justifyContent:"center" }} >
-            
-                {this.props.activeSurvey && <ActiveSurvey graphResults={this.props.graphResults} activeSurvey={this.props.activeSurvey} openModal={this.props.openModal} getActiveSurvey={this.props.getActiveSurvey} />}
+                <div style={{ justifyContent: "center" }} >
 
-            
-                <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />
+                    {this.props.activeSurvey.map((survey, idx) => {
+                        return (
 
-                {this.props.activeSurvey.map((survey, idx) => {
-                    return (
+                            <ActiveSurvey graphResults={this.props.graphResults} key={idx} activeSurvey={survey} />
 
-                          <ActiveSurvey graphResults={this.props.graphResults} key={idx} activeSurvey={survey}/>
+                        )
+                    })}
 
-                    )
-                })}
-
-                {/*{this.props.activeSurvey && <ActiveSurvey graphResults={this.props.graphResults} activeSurvey={this.props.activeSurvey} openModal={this.props.openModal} getActiveSurvey={this.props.getActiveSurvey} />}*/}
-            </div>
-            <br></br>
+                    {/*{this.props.activeSurvey && <ActiveSurvey graphResults={this.props.graphResults} activeSurvey={this.props.activeSurvey} openModal={this.props.openModal} getActiveSurvey={this.props.getActiveSurvey} />}*/}
+                </div>
+                <br></br>
             </>
         )
     }

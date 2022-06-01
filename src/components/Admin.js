@@ -37,8 +37,10 @@ class Admin extends Component {
                         <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />
                         {/* add update API Button*/}
                         {/* add Active survey header and counter how many surveys */}
+                        <h2>Active Surveys</h2>
                         <ActiveSurveyContainer activeSurvey={this.props.activeSurvey} createNewSurvey={this.props.createNewSurvey} graphResults={this.props.graphResults} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />
                         {/* add archived survey header */}
+                        <h2>Archived Surveys</h2>
                         <SurveySummaryList getSavedSurvey={this.props.getSavedSurvey} graphResults={this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey} />
                     </>
                     : 
