@@ -8,10 +8,8 @@ import ResultsButton from './ResultsButton';
 class ActiveSurvey extends Component {
     render() {
         return (
-
-            <Card>
-                <Card.Header as="h5">Active Survey</Card.Header> 
-                {/*change h5 name to Survey Name (ex. 301-d85*/}
+            <Card style={{ margin: 'auto', marginTop: 12, maxWidth: '70%'}}>
+                <Card.Header as="h5">Active Survey</Card.Header>
 
                 <Card.Body>
 

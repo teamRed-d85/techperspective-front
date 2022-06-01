@@ -21,7 +21,8 @@ class App extends Component {
       surveyData: [],
       surveyId: null,
       error: false,
-      surveyToGraph: [1, 1, 2, 3, 5, 1, 3, 4, 5, 1, 2, 4]
+      surveyToGraph:[] 
+      // [1, 1, 2, 3, 5, 1, 3, 4, 5, 1, 2, 4]
     }
   }
   graphResults = (obj) =>{
