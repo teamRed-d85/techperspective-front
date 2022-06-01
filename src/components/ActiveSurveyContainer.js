@@ -1,6 +1,5 @@
 import { Component } from "react";
 import ActiveSurvey from "./ActiveSurvey"
-import { Row } from 'react-bootstrap'
 
 class ActiveSurveyContainer extends Component {
     componentDidMount() {

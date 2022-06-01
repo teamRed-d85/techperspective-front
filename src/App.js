@@ -25,8 +25,9 @@ class App extends Component {
       // [1, 1, 2, 3, 5, 1, 3, 4, 5, 1, 2, 4]
     }
   }
-  graphResults = (obj) =>{
-    this.setState({surveyToGraph: obj})
+  graphResults = async (id) =>{
+    const obj = await axios.get(`${process.env.REACT_APP_SERVER_URL}/results/${id}`);
+    this.setState({surveyToGraph: obj});
   }
   /* Grab survey data from server, which grabs from db */
   getSavedSurvey = async () => {
@@ -105,6 +106,7 @@ class App extends Component {
       try {
         const activeSurvey = await axios(axiosRequestConfig);
         this.setState({ activeSurvey: activeSurvey.data });
+        console.log(activeSurvey.data);
       } catch (error) {
         console.log(error, 'No Active Survey');
       }

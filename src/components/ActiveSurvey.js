@@ -13,7 +13,7 @@ class ActiveSurvey extends Component {
 
                 <Card.Body>
 
-                    {/* change refresh to "share link" button*/}
+                    {/* Fix function for share*/}
 
                     <Row md={6} style={{ justifyContent: 'space-around', alignItems: 'center' }}>
                         <Button style={{ maxHeight: 36 }} variant="primary" onClick={this.props.getActiveSurvey}>Share</Button>
@@ -25,7 +25,7 @@ class ActiveSurvey extends Component {
                             Submission Count: {this.props.activeSurvey.submissionCount}
                         </Card.Text>
 
-                        <ResultsButton surveyData = {this.props.activeSurvey.results} graphResults = {this.props.graphResults}/>
+                        <ResultsButton surveyID = {this.props.activeSurvey.surveyID} graphResults = {this.props.graphResults}/>
                         <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }} variant="outline-dark" onClick={this.props.openModal}>Archive Survey</Button>
                     </Row>
                 </Card.Body>
