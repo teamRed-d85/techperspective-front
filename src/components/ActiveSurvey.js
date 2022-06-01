@@ -8,9 +8,11 @@ import ResultsButton from './ResultsButton';
 class ActiveSurvey extends Component {
     render() {
         return (
+
             <Card>
                 <Card.Header as="h5">Active Survey</Card.Header> 
                 {/*change h5 name to Survey Name (ex. 301-d85*/}
+
                 <Card.Body>
 
                     {/* change refresh to "share link" button*/}
@@ -26,7 +28,7 @@ class ActiveSurvey extends Component {
                         </Card.Text>
 
                         <ResultsButton surveyData = {this.props.activeSurvey.results} graphResults = {this.props.graphResults}/>
-                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }}variant="outline-dark" onClick={this.props.openModal}>Archive Survey</Button>
+                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }} variant="outline-dark" onClick={this.props.openModal}>Archive Survey</Button>
                     </Row>
                 </Card.Body>
             </Card>

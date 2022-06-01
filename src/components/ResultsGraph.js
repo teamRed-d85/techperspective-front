@@ -39,9 +39,6 @@ if (!props.surveyToGraph){
   return null
 }
 
-console.log(props.surveyToGraph)
-
-
 const data = {
   labels,
   datasets: [
