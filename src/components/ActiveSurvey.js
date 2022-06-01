@@ -10,7 +10,11 @@ class ActiveSurvey extends Component {
         return (
             <Card style={{ margin: 'auto', marginTop: 12, maxWidth: '70%'}}>
                 <Card.Header as="h5">Active Survey</Card.Header>
+
                 <Card.Body>
+
+                    {/* change refresh to "share link" button*/}
+
                     <Row md={6} style={{ justifyContent: 'space-around', alignItems: 'center' }}>
                         <Button style={{ maxHeight: 36 }} variant="primary" onClick={this.props.getActiveSurvey}>Share</Button>
                         <Card.Title>{this.props.activeSurvey.createdOn}</Card.Title>
