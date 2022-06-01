@@ -19,23 +19,37 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
 export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'top',
+      position: 'bottom',
     },
     title: {
       display: true,
-      text: 'Chart.js Bar Chart',
+      text: 'Number of People who took the survey',
+      position: 'left'
     },
+    scales: {
+      yAxes: [{
+        display: true,
+        scaleLabel: {
+          display: true,
+          labelString: 'Value'
+        },
+        ticks: {
+            min: 0,
+            max: 100000000000,
+            stepSize: 1
+          }
+        }
+      ]}
   },
-};
-export default function ResultsGraph(props) {
+  };
+  export default function ResultsGraph(props) {
 
-const labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
-if (!props.surveyToGraph){
+    const labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
+  if (!props.surveyToGraph) {
   return null
 }
 
@@ -54,8 +68,10 @@ const data = {
 };
 
 
-  return <Bar    data={data}
-  width={100}
+return <Bar
+  data={data}
+  width={150}
   height={50}
-  options={{ maintainAspectRatio: true }} />;
+  options={options}
+/>;
 }
