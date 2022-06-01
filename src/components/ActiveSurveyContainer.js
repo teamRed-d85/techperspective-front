@@ -15,10 +15,10 @@ class ActiveSurveyContainer extends Component {
             
                 <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />
 
-                {this.props.activeSurvey.map(survey => {
+                {this.props.activeSurvey.map((survey, idx) => {
                     return (
 
-                          <ActiveSurvey activeSurvey={survey}/>
+                          <ActiveSurvey graphResults={this.props.graphResults} key={idx} activeSurvey={survey}/>
 
                     )
                 })}
