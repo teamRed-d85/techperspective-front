@@ -8,7 +8,7 @@ import ResultsButton from './ResultsButton';
 class ActiveSurvey extends Component {
     render() {
         return (
-            <Card>
+            <Card style={{ margin: 'auto', marginTop: 10, maxWidth: '70%'}}>
                 <Card.Header as="h5">Active Survey</Card.Header>
                 <Card.Body>
                     <Row md={6} style={{ justifyContent: 'space-around', alignItems: 'center' }}>
@@ -22,7 +22,7 @@ class ActiveSurvey extends Component {
                         </Card.Text>
 
                         <ResultsButton surveyData = {this.props.activeSurvey.results} graphResults = {this.props.graphResults}/>
-                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }}variant="outline-dark" onClick={this.props.openModal}>Archive Survey</Button>
+                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }} variant="outline-dark" onClick={this.props.openModal}>Archive Survey</Button>
                     </Row>
                 </Card.Body>
             </Card>
