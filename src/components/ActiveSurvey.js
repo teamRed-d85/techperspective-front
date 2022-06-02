@@ -1,27 +1,27 @@
 import { Component } from 'react';
 import { Card, Button, Row, Overlay, Tooltip } from 'react-bootstrap';
 import ResultsButton from './ResultsButton';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 class ActiveSurvey extends Component {
     constructor(props) {
-            super(props);
-            this.state = {
-                    show: false,
-                    target: null
-                }
-              }
-            
-        setShow = (event) => {
-            this.setState({
-                show: !this.state.show,
-                target: event.target
-            })
+        super(props);
+        this.state = {
+            show: false,
+            target: null
+        }
+    }
 
-        }      
-            render() {
+    setShow = (event) => {
+        this.setState({
+            show: !this.state.show,
+            target: event.target
+        })
+
+    }
+    render() {
         return (
-            <Card style={{ margin: 'auto', marginTop: 12, maxWidth: '70%'}}>
+            <Card style={{ margin: 'auto', marginTop: 12, maxWidth: '70%' }}>
                 <Card.Header as="h5">Active Survey</Card.Header>
 
                 <Card.Body>
@@ -47,9 +47,9 @@ class ActiveSurvey extends Component {
                             Submission Count: {this.props.activeSurvey.submissionCount}
                         </Card.Text>
 
-                        <ResultsButton surveyID = {this.props.activeSurvey.surveyID} graphResults = {this.props.graphResults}/>
+                        <ResultsButton surveyID={this.props.activeSurvey.surveyID} graphResults={this.props.graphResults} />
 
-                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }} variant="outline-dark" onClick={() => {this.props.openModal(this.props.activeSurvey)}}>Archive Survey</Button>
+                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }} variant="outline-dark" onClick={() => { this.props.openModal(this.props.activeSurvey) }}>Archive Survey</Button>
                     </Row>
                 </Card.Body>
             </Card>
