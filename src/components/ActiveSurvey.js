@@ -43,9 +43,6 @@ class ActiveSurvey extends Component {
                         <Card.Text>
                             Survey ID: {this.props.activeSurvey.surveyID}
                         </Card.Text>
-                        <Card.Text>
-                            Submission Count: {this.props.activeSurvey.submissionCount}
-                        </Card.Text>
 
                         <ResultsButton surveyID = {this.props.activeSurvey.surveyID} graphResults = {this.props.graphResults}/>
 
