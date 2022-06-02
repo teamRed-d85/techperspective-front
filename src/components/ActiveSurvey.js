@@ -1,22 +1,44 @@
 import { Component } from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
+import { Card, Button, Row, Overlay, Tooltip } from 'react-bootstrap';
 import ResultsButton from './ResultsButton';
-
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 class ActiveSurvey extends Component {
-    render() {
+    constructor(props) {
+            super(props);
+            this.state = {
+                    show: false,
+                    target: null
+                }
+              }
+            
+        setShow = (event) => {
+            this.setState({
+                show: !this.state.show,
+                target: event.target
+            })
+
+        }      
+            render() {
         return (
             <Card style={{ margin: 'auto', marginTop: 12, maxWidth: '70%'}}>
                 <Card.Header as="h5">Active Survey</Card.Header>
 
                 <Card.Body>
-
-                    {/* Fix function for share*/}
-
                     <Row md={6} style={{ justifyContent: 'space-around', alignItems: 'center' }}>
-                        <Button style={{ maxHeight: 36 }} variant="primary" onClick={this.props.getActiveSurvey}>Share</Button>
+                        {/* Copies individual survey link */}
+
+                        <CopyToClipboard text={`${process.env.REACT_APP_AUTH_REDIRECT_URI}/${this.props.activeSurvey.surveyID}`}>
+                            <Button style={{ maxHeight: 36 }} variant="primary" onClick={this.setShow}>Share Link</Button>
+                        </CopyToClipboard>
+                        <Overlay target={this.state.target} show={this.state.show} placement="right">
+                            {(props) => (
+                                <Tooltip id="overlay-example" {...props}>
+                                    Copied!
+                                </Tooltip>
+                            )}
+                        </Overlay>
+
                         <Card.Title>{this.props.activeSurvey.createdOn}</Card.Title>
                         <Card.Text>
                             Survey ID: {this.props.activeSurvey.surveyID}

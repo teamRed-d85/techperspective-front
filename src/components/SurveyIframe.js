@@ -11,17 +11,20 @@ import Iframe from "react-iframe";
 // ${process.env.REACT_APP_JOTFORM_SURVEY_ID}
 
 export default class SurveyIframe extends Component {
+  componentDidMount(){
+    console.log(this.props.id);
+  }
   render() {
     return (
       <div>
         
       <Card>
-          {this.props.activeSurvey && <Iframe
-            url="https://www.jotform.com/form/212435934626054"
+        <Iframe
+            url={`https://www.jotform.com/form/${this.props.id}`}
             width="100%"
             height="500px"
             id="survey"
-          />}
+          />
         </Card>
       </div>
     );

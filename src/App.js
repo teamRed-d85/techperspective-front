@@ -21,7 +21,7 @@ class App extends Component {
       surveyData: [],
       surveyId: null,
       error: false,
-      surveyToGraph:[] 
+      surveyToGraph:[1, 1, 2, 3, 5, 1, 3, 4, 5, 1, 2, 4] 
       // [1, 1, 2, 3, 5, 1, 3, 4, 5, 1, 2, 4]
     }
   }
@@ -83,7 +83,10 @@ class App extends Component {
     let url = `${process.env.REACT_APP_SERVER_URL}/jotform`
     try {
       const newSurveyObj = await axios.post(url);
-      this.setState({ activeSurvey: newSurveyObj.data });
+      
+      this.setState({ activeSurvey: [newSurveyObj.data, ...this.state.activeSurvey]});
+      console.log(this.state.activeSurvey)
+  
     } catch (error) {
       console.log(error, 'could not create new survey');
     }
@@ -106,7 +109,7 @@ class App extends Component {
       try {
         const activeSurvey = await axios(axiosRequestConfig);
         this.setState({ activeSurvey: activeSurvey.data });
-        console.log(activeSurvey.data);
+  
       } catch (error) {
         console.log(error, 'No Active Survey');
       }
@@ -175,7 +178,7 @@ class App extends Component {
           <Routes>
             <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey} getSavedSurvey={this.getSavedSurvey} />} />
             <Route path="/results" element={<Results surveyToGraph= {this.state.surveyToGraph} getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
-            <Route path="/" element={<Survey activeSurvey={this.state.activeSurvey} />} />
+            <Route path="/:id" element={<Survey activeSurvey={this.state.activeSurvey} />} />
             <Route path="/about" element={<AboutUs />} />
           </Routes>
         </Router>
