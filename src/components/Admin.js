@@ -3,9 +3,8 @@ import SurveySummaryList from './SurveySummaryList';
 import ActiveSurveyContainer from './ActiveSurveyContainer';
 import ConfirmModal from './ConfirmModal';
 import { withAuth0 } from '@auth0/auth0-react';
-import LoginButton from './LoginButton';
-import Row from 'react-bootstrap/Row';
 import NewSurveyButton from './NewSurveyButton';
+// import NewSurveyModal from './NewSurveyModal';
 
 
 class Admin extends Component {
@@ -37,7 +36,9 @@ class Admin extends Component {
             <div>
             <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} selectedSurvey={this.state.selectedSurvey} />
 
-                {this.props.auth0.isAuthenticated ?
+            {/* <NewSurveyModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} selectedSurvey={this.state.selectedSurvey} />
+             */}
+                {this.props.auth0.isAuthenticated &&
                     <>
                         <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />
                         {/* add update API Button*/}
@@ -48,10 +49,7 @@ class Admin extends Component {
                         <h2>Archived Surveys</h2>
                         <SurveySummaryList getSavedSurvey={this.props.getSavedSurvey} graphResults={this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey} />
                     </>
-                    : 
-                    <Row style={{justifyContent: "center"}}>
-                    <LoginButton />
-                    </Row>}
+                  }
             </div>
         )
     }

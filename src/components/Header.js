@@ -27,6 +27,9 @@ class Header extends Component {
                       </Nav>
                   {this.props.auth0.isAuthenticated ?
                       <>
+                        <Link className="headerButtonSurvey" to="/about">
+                              <Button style={{backgroundColor: "#ea4444", marginLeft: "1rem"}} variant="primary">About Us</Button>
+                          </Link>
                           <Link className="headerButtonSurvey" to="/">
                               <Button style={{backgroundColor: "#ea4444", marginLeft: "1rem"}} variant="primary">Show Survey</Button>
                           </Link>
