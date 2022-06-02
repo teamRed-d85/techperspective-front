@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import SurveyIframe from './SurveyIframe';
 
+
 export default class Survey extends Component {
+    componentDidMount () {
+        console.log(window.location.pathname.slice(1));
+    }
     render() {
+        const id = window.location.pathname.slice(1);
         return (
             <div>
                  <br></br>
@@ -12,8 +17,10 @@ export default class Survey extends Component {
                 <h2>Be sure to hit "SUBMIT" after answering the last question.</h2>
                 <br></br>
 
-                {this.props.activeSurvey ? <SurveyIframe activeSurvey={this.props.activeSurvey} /> : <h2>No active survey available.</h2>}
+              <SurveyIframe id={id} />
             </div>
         )
     }
 }
+
+

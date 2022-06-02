@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default class ResultsButton extends Component {
 
       handleClick = () => {
-        this.props.graphResults(this.props.surveyData)
+        this.props.graphResults(this.props.surveyID);
       }
     render() {
         return (

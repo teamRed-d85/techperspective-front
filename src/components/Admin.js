@@ -13,6 +13,7 @@ class Admin extends Component {
         super(props);
         this.state = {
             showModal: false,
+            selectedSurvey: null
         }
     }
 
@@ -20,25 +21,31 @@ class Admin extends Component {
         this.setState({ showModal: false })
     }
 
-    openModal = () => {
-        this.setState({ showModal: true })
+    openModal = (selectedSurvey) => {
+        this.setState({ 
+            showModal: true,
+            selectedSurvey: selectedSurvey 
+        })
+      
     }
-
+    
     componentDidMount() {
         this.props.getActiveSurvey();
     }
     render() {
         return (
             <div>
-            <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} />
+            <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} selectedSurvey={this.state.selectedSurvey} />
 
                 {this.props.auth0.isAuthenticated ?
                     <>
                         <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />
                         {/* add update API Button*/}
                         {/* add Active survey header and counter how many surveys */}
+                        <h2>Active Surveys</h2>
                         <ActiveSurveyContainer activeSurvey={this.props.activeSurvey} createNewSurvey={this.props.createNewSurvey} graphResults={this.props.graphResults} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />
                         {/* add archived survey header */}
+                        <h2>Archived Surveys</h2>
                         <SurveySummaryList getSavedSurvey={this.props.getSavedSurvey} graphResults={this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey} />
                     </>
                     : 

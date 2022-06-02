@@ -25,8 +25,9 @@ class App extends Component {
       // [1, 1, 2, 3, 5, 1, 3, 4, 5, 1, 2, 4]
     }
   }
-  graphResults = (obj) =>{
-    this.setState({surveyToGraph: obj})
+  graphResults = async (id) =>{
+    const obj = await axios.get(`${process.env.REACT_APP_SERVER_URL}/results/${id}`);
+    this.setState({surveyToGraph: obj});
   }
   /* Grab survey data from server, which grabs from db */
   getSavedSurvey = async () => {
@@ -82,7 +83,10 @@ class App extends Component {
     let url = `${process.env.REACT_APP_SERVER_URL}/jotform`
     try {
       const newSurveyObj = await axios.post(url);
-      this.setState({ activeSurvey: newSurveyObj.data });
+      
+      this.setState({ activeSurvey: [newSurveyObj.data, ...this.state.activeSurvey]});
+      console.log(this.state.activeSurvey)
+  
     } catch (error) {
       console.log(error, 'could not create new survey');
     }
@@ -105,6 +109,7 @@ class App extends Component {
       try {
         const activeSurvey = await axios(axiosRequestConfig);
         this.setState({ activeSurvey: activeSurvey.data });
+  
       } catch (error) {
         console.log(error, 'No Active Survey');
       }
@@ -113,20 +118,18 @@ class App extends Component {
 
   /* Archive the survey */
 
-  putActiveSurvey = async () => {
+  putActiveSurvey = async (survey) => {
     if (this.props.auth0.isAuthenticated) {
       const tokenResponse = await this.props.auth0.getIdTokenClaims();
       const jwt = tokenResponse.__raw;
 
-      console.log(this.state.activeSurvey);
-      this.state.activeSurvey.active = false;
-      console.log(this.state.activeSurvey);
+      survey.active = false;
 
       const axiosRequestConfig = {
         method: 'post',
         baseURL: process.env.REACT_APP_SERVER_URL,
         url: `/survey`,
-        data: this.state.activeSurvey,
+        data: survey,
         headers: { "Authorization": `Bearer ${jwt}` }
         
       }
@@ -173,7 +176,7 @@ class App extends Component {
           <Routes>
             <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey} getSavedSurvey={this.getSavedSurvey} />} />
             <Route path="/results" element={<Results surveyToGraph= {this.state.surveyToGraph} getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
-            <Route path="/" element={<Survey activeSurvey={this.state.activeSurvey} />} />
+            <Route path="/:id" element={<Survey activeSurvey={this.state.activeSurvey} />} />
             <Route path="/about" element={<AboutUs />} />
           </Routes>
         </Router>
