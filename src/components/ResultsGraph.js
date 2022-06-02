@@ -31,7 +31,7 @@ export const options = {
       position: 'left'
     },
     scales: {
-      yAxes: [{
+      y: {
         display: true,
         scaleLabel: {
           display: true,
@@ -39,11 +39,11 @@ export const options = {
         },
         ticks: {
             min: 0,
-            max: 100000000000,
+            max: 100,
             stepSize: 1
           }
         }
-      ]}
+      }
   },
   };
   export default function ResultsGraph(props) {

@@ -22,13 +22,13 @@ class App extends Component {
       surveyData: [],
       surveyId: null,
       error: false,
-      surveyToGraph:[] 
-      // [1, 1, 2, 3, 5, 1, 3, 4, 5, 1, 2, 4]
+      surveyToGraph:[]
     }
   }
   graphResults = async (id) =>{
     const obj = await axios.get(`${process.env.REACT_APP_SERVER_URL}/results/${id}`);
-    this.setState({surveyToGraph: obj});
+    this.setState({surveyToGraph: obj.data});
+    
   }
   /* Grab survey data from server, which grabs from db */
   getSavedSurvey = async () => {
@@ -175,6 +175,7 @@ class App extends Component {
         <Router>
           <Header />
           <Routes>
+            <Route path="/" element/>
             <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey} getSavedSurvey={this.getSavedSurvey} />} />
             <Route path="/results" element={<Results surveyToGraph= {this.state.surveyToGraph} getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
             <Route path="/:id" element={<Survey activeSurvey={this.state.activeSurvey} />} />
