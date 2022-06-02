@@ -80,8 +80,8 @@ class App extends Component {
   }
 
   /* Ping server to create a new survey ID to enter into the survey Iframe*/
-  createNewSurvey = async () => {
-    let url = `${process.env.REACT_APP_SERVER_URL}/jotform`
+  createNewSurvey = async (name) => {
+    let url = `${process.env.REACT_APP_SERVER_URL}/jotform/${name}`
     try {
       const newSurveyObj = await axios.post(url);
       
@@ -175,7 +175,6 @@ class App extends Component {
         <Router>
           <Header />
           <Routes>
-            <Route path="/" element/>
             <Route path="/admin" element={<Admin graphResults={this.graphResults} activeSurvey={this.state.activeSurvey} createNewSurvey={this.createNewSurvey} surveyData={this.state.surveyData} putActiveSurvey={this.putActiveSurvey} deleteSavedSurvey={this.deleteSavedSurvey} getActiveSurvey={this.getActiveSurvey} getSavedSurvey={this.getSavedSurvey} />} />
             <Route path="/results" element={<Results surveyToGraph= {this.state.surveyToGraph} getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
             <Route path="/:id" element={<Survey activeSurvey={this.state.activeSurvey} />} />

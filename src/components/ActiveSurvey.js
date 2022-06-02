@@ -22,7 +22,7 @@ class ActiveSurvey extends Component {
     render() {
         return (
             <Card style={{ margin: 'auto', marginTop: 12, maxWidth: '70%' }}>
-                <Card.Header as="h5">Active Survey</Card.Header>
+                <Card.Header as="h5">{this.props.activeSurvey.surveyName}</Card.Header>
 
                 <Card.Body>
                     <Row md={6} style={{ justifyContent: 'space-around', alignItems: 'center' }}>
