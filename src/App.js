@@ -21,7 +21,7 @@ class App extends Component {
       surveyData: [],
       surveyId: null,
       error: false,
-      surveyToGraph:[1, 1, 2, 3, 5, 1, 3, 4, 5, 1, 2, 4] 
+      surveyToGraph:[] 
       // [1, 1, 2, 3, 5, 1, 3, 4, 5, 1, 2, 4]
     }
   }
@@ -118,20 +118,18 @@ class App extends Component {
 
   /* Archive the survey */
 
-  putActiveSurvey = async () => {
+  putActiveSurvey = async (survey) => {
     if (this.props.auth0.isAuthenticated) {
       const tokenResponse = await this.props.auth0.getIdTokenClaims();
       const jwt = tokenResponse.__raw;
 
-      console.log(this.state.activeSurvey);
-      this.state.activeSurvey.active = false;
-      console.log(this.state.activeSurvey);
+      survey.active = false;
 
       const axiosRequestConfig = {
         method: 'post',
         baseURL: process.env.REACT_APP_SERVER_URL,
         url: `/survey`,
-        data: this.state.activeSurvey,
+        data: survey,
         headers: { "Authorization": `Bearer ${jwt}` }
         
       }

@@ -13,6 +13,7 @@ class Admin extends Component {
         super(props);
         this.state = {
             showModal: false,
+            selectedSurvey: null
         }
     }
 
@@ -20,17 +21,21 @@ class Admin extends Component {
         this.setState({ showModal: false })
     }
 
-    openModal = () => {
-        this.setState({ showModal: true })
+    openModal = (selectedSurvey) => {
+        this.setState({ 
+            showModal: true,
+            selectedSurvey: selectedSurvey 
+        })
+      
     }
-
+    
     componentDidMount() {
         this.props.getActiveSurvey();
     }
     render() {
         return (
             <div>
-            <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} />
+            <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} selectedSurvey={this.state.selectedSurvey} />
 
                 {this.props.auth0.isAuthenticated ?
                     <>

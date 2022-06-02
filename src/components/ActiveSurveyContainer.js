@@ -15,7 +15,7 @@ class ActiveSurveyContainer extends Component {
                     {this.props.activeSurvey.map((survey, idx) => {
                         return (
 
-                            <ActiveSurvey graphResults={this.props.graphResults} key={idx} activeSurvey={survey} />
+                            <ActiveSurvey graphResults={this.props.graphResults} openModal={this.props.openModal} key={idx} activeSurvey={survey} />
 
                         )
                     })}

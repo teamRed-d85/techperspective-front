@@ -48,7 +48,8 @@ class ActiveSurvey extends Component {
                         </Card.Text>
 
                         <ResultsButton surveyID = {this.props.activeSurvey.surveyID} graphResults = {this.props.graphResults}/>
-                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }} variant="outline-dark" onClick={this.props.openModal}>Archive Survey</Button>
+
+                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }} variant="outline-dark" onClick={() => {this.props.openModal(this.props.activeSurvey)}}>Archive Survey</Button>
                     </Row>
                 </Card.Body>
             </Card>
