@@ -3,9 +3,8 @@ import SurveySummaryList from './SurveySummaryList';
 import ActiveSurveyContainer from './ActiveSurveyContainer';
 import ConfirmModal from './ConfirmModal';
 import { withAuth0 } from '@auth0/auth0-react';
-import LoginButton from './LoginButton';
-import Row from 'react-bootstrap/Row';
 import NewSurveyButton from './NewSurveyButton';
+import NewSurveyModal from './NewSurveyModal';
 
 
 class Admin extends Component {
@@ -13,7 +12,9 @@ class Admin extends Component {
         super(props);
         this.state = {
             showModal: false,
-            selectedSurvey: null
+            selectedSurvey: null,
+            showNewSurveyModal: false
+
         }
     }
 
@@ -28,6 +29,19 @@ class Admin extends Component {
         })
       
     }
+
+
+    closeNewSurveyModal = () => {
+        this.setState({ showNewSurveyModal: false })
+    }
+
+    openNewSurveyModal = () => {
+        this.setState({ 
+            showNewSurveyModal: true,
+           
+        })
+      
+    }
     
     componentDidMount() {
         this.props.getActiveSurvey();
@@ -37,21 +51,20 @@ class Admin extends Component {
             <div>
             <ConfirmModal showModal={this.state.showModal} closeModal={this.closeModal} putActiveSurvey={this.props.putActiveSurvey} selectedSurvey={this.state.selectedSurvey} />
 
-                {this.props.auth0.isAuthenticated ?
+            <NewSurveyModal showNewSurveyModal={this.state.showNewSurveyModal} closeNewSurveyModal={this.closeNewSurveyModal} createNewSurvey={this.props.createNewSurvey} />
+            
+                {this.props.auth0.isAuthenticated &&
                     <>
-                        <NewSurveyButton createNewSurvey={this.props.createNewSurvey} />
+                        <NewSurveyButton openNewSurveyModal={this.openNewSurveyModal} />
                         {/* add update API Button*/}
                         {/* add Active survey header and counter how many surveys */}
                         <h2>Active Surveys</h2>
-                        <ActiveSurveyContainer activeSurvey={this.props.activeSurvey} createNewSurvey={this.props.createNewSurvey} graphResults={this.props.graphResults} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />
+                        <ActiveSurveyContainer activeSurvey={this.props.activeSurvey} graphResults={this.props.graphResults} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />
                         {/* add archived survey header */}
                         <h2>Archived Surveys</h2>
                         <SurveySummaryList getSavedSurvey={this.props.getSavedSurvey} graphResults={this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey} />
                     </>
-                    : 
-                    <Row style={{justifyContent: "center"}}>
-                    <LoginButton />
-                    </Row>}
+                  }
             </div>
         )
     }

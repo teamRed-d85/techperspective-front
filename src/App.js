@@ -4,6 +4,7 @@ import Survey from './components/Survey';
 import Admin from './components/Admin';
 import Results from './components/Results';
 import AboutUs from './components/AboutUs';
+import Welcome from './components/Welcome';
 import { withAuth0 } from '@auth0/auth0-react';
 import {
   BrowserRouter as Router,
@@ -179,6 +180,7 @@ class App extends Component {
             <Route path="/results" element={<Results surveyToGraph= {this.state.surveyToGraph} getSavedSurvey={this.getSavedSurvey} surveyData={this.state.surveyData} />} />
             <Route path="/:id" element={<Survey activeSurvey={this.state.activeSurvey} />} />
             <Route path="/about" element={<AboutUs />} />
+          <Route path="/" element={<Welcome />} /> 
           </Routes>
         </Router>
       </>
