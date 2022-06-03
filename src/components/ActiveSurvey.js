@@ -31,6 +31,7 @@ class ActiveSurvey extends Component {
                         <CopyToClipboard text={`${process.env.REACT_APP_AUTH_REDIRECT_URI}/${this.props.activeSurvey.surveyID}`}>
                             <Button style={{ maxHeight: 36 }} variant="primary" onClick={this.setShow}>Share</Button>
                         </CopyToClipboard>
+                        {/* confirms copy w/ tooltip */}
                         <Overlay target={this.state.target} show={this.state.show} placement="right">
                             {(props) => (
                                 <Tooltip id="overlay-example" {...props}>

@@ -20,7 +20,6 @@ class ActiveSurveyContainer extends Component {
                         )
                     })}
 
-                    {/*{this.props.activeSurvey && <ActiveSurvey graphResults={this.props.graphResults} activeSurvey={this.props.activeSurvey} openModal={this.props.openModal} getActiveSurvey={this.props.getActiveSurvey} />}*/}
                 </div>
                 <br></br>
             </>

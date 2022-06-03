@@ -18,6 +18,7 @@ class Admin extends Component {
         }
     }
 
+    // for ConfirmModal.js
     closeModal = () => {
         this.setState({ showModal: false })
     }
@@ -26,11 +27,10 @@ class Admin extends Component {
         this.setState({ 
             showModal: true,
             selectedSurvey: selectedSurvey 
-        })
-      
+        })  
     }
 
-
+    // for NewSurveyModal.js
     closeNewSurveyModal = () => {
         this.setState({ showNewSurveyModal: false })
     }
@@ -40,7 +40,6 @@ class Admin extends Component {
             showNewSurveyModal: true,
            
         })
-      
     }
     
     componentDidMount() {
@@ -56,11 +55,11 @@ class Admin extends Component {
                 {this.props.auth0.isAuthenticated &&
                     <>
                         <NewSurveyButton openNewSurveyModal={this.openNewSurveyModal} />
-                        {/* add update API Button*/}
-                        {/* add Active survey header and counter how many surveys */}
+                        {/* Future task: add update API Button*/}
+
                         <h2>Active Surveys</h2>
                         {this.props.activeSurvey && <ActiveSurveyContainer activeSurvey={this.props.activeSurvey} graphResults={this.props.graphResults} openModal={this.openModal} getActiveSurvey={this.props.getActiveSurvey} />}
-                        {/* add archived survey header */}
+                    
                         <h2>Archived Surveys</h2>
                         <SurveySummaryList getSavedSurvey={this.props.getSavedSurvey} graphResults={this.props.graphResults} surveyData={this.props.surveyData} deleteSavedSurvey={this.props.deleteSavedSurvey} />
                     </>
@@ -69,6 +68,5 @@ class Admin extends Component {
         )
     }
 }
-
 
 export default withAuth0(Admin);
