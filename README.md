@@ -7,13 +7,11 @@
 
 ## **The vision**
 
-![Survey](./public/assets/survey.png)
-
 - The vision compiling diversity data and using it as a teaching tool to bring to light internal biases and ways to be more conscious with regard to inclusivity and diversity .
 
 ## **The Problem Domain**
 
-- This project will revolutionize the existing survey data, making it more user friendly and potentially caching historical data.
+- This project will revolutionize the existing survey data, making it more user friendly and caching historical data.
 
 ## **The Importance**
 
@@ -32,99 +30,58 @@
 - View data on a stylized graph.
 - Compare data by multiple students in one class.
 - See how many students participate in the survey.
+- Have multiple active surveys each being for an individual class
 
-#### *Out of Scope*
-
-- Data from other schools and students will not be visible.
-- New students' data from other schools cannot be added.
-
-### Minimum Viable Product
-
-![Survey Questions](./public/assets/surveyquestion.png)
-
-- **What will your MVP functionality be?**
-  - Access and complete the survey.
-  - Store immediate survey data in the DB.
-  - Render a stylized graph of the immediate data.
-
-### Stretch Goals
-
-- **What are your stretch goals?**
-  - Cache historical data.
-  - Develop a graph modeling historical data.
-  - Allow the user to access historical data and trends.
-- **What stretch goals are you going to aim for?**
-  - The ability to store historical data.
-
-## **Software Requirements**
-
-### **Functional Requirements**
-
-- User will be able to complete the survey and submit data.
-- User will be able to access a stylized graph of the immediate data.
-- User will be able to secure data and login information.
-
-### **Non-Functional Requirements**
-
-- **Security**
-  - Our app will use Auth0 to make sure we have authorized users
-  - This will allow us to track and personalize to our users
-  - Our backend will validate requests to make sure it is coming from our front end
-  - Managing the uses of our api and databases so only our users are able to access those resources
-
-- **Database**
-  - Each item belongs to a single location
-  - The two databases will be a Student database and a Class database
-    - There will be a identifier in the DB associated with the class
-  - Each student will have a single class
-
-### **Data Flow**
-
-![Data flow for the survey](./public/assets/surveydata.png)
-
-### DataBase Schemas
-
-```js
-
-ClassSurvey = {
-  ClassNumber : Number,
-  Identifier : String,
-  ClassCount : Number,
-  Instructor : String,
-  thumbnail : String, //url
-  note: String //optional
-}
-```
 
 ## How To Use **The Tech Perspective Survey**
-
 ## Step One
+Be sure you are in the directory in which you want these repos to live before you clone.
 
-- begin by running:
-- `git clone` then copy and paste `git@github.com:Meltingpot-Data/techperspective-front.git`
+Begin by running:
+`git clone https://github.com/teamRed-d85/techperspective-front.git`
 
-- Do the same for the backend repo:
-- `git clone` then copy and paste `git@github.com:Meltingpot-Data/techperspective-back.git`
+Do the same for the backend repo:
+`git clone https://github.com/teamRed-d85/techperspective-back.git`
 
 ## Step Two
 
-- run: `cd techperspective-front`
-- then (installs node modules): `npm install`
-- then (installs dependencies): `npm i express bootstrap nodemon cors dotenv mongoose jwt bcrypt base-64 supertest sqlite3 jsonwebtoken`
-- repeat **step two** for 'back'
+In your terminal and inside of the root directory of the project `cd techperspective-front`
+- then `npm install`
+- then `npm install`
+
+- repeat **step two** for 'techperspective-back'
 
 ## Step Three
 
-- Your are going to need to create a `.env` in order to use the server, follow the guide in the provided `.sample.env` file.
+- Your are going to need to create a `.env` file in your frontend and backend root directories. Below are the env variables you will need.
 
-## How to Use
+FRONT END!
+```
+REACT_APP_AUTH_DOMAIN=<your-value-here>
+REACT_APP_AUTH_CLIENT_ID=<your-value-here>
+REACT_APP_AUTH_REDIRECT_URI=<your-value-here>
+REACT_APP_SERVER_URL=<your-value-here>
+```
 
-- Click on the provided link here: [Survey Admin Portal](https://tech-perspective-survey.netlify.app/admin)
+BACK END!
+```
+MONGO_DB=mongodb+srv://<username>:<password>@cluster0.uj68i.mongodb.net/?retryWrites=true&w=majority
+JOTFORM_API=<your-value-here>
+JOTFORM_TEMPLATE=<your-value-here>
+JWKS_URI=<your-value-here>
+```
+
+You can obtain your JotForm API key from [JotForm](https://www.jotform.com/)
+1. Make an account
+2. Log in
+3. Click on profile icon picture in the top right and select `Settings`
+4. In the left column click `API` and then click the `Create New Key` button to generate an API key
+
 
 ## To start server
 
-- run: `npm start`
-*To test the server*
+- Within your backend root directory type `npm start` or `nodemon` if you have that installed globally
+This will start the backend services.
 
-- run: `npm run test`
-*To run the tests*
+- Within your frontend root directory type `npm run`
+This will start up your frontend React project files

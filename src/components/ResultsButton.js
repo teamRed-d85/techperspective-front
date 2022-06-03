@@ -5,15 +5,16 @@ import { Link } from 'react-router-dom';
 
 export default class ResultsButton extends Component {
 
-      handleClick = () => {
-        this.props.graphResults(this.props.surveyData)
-      }
+      // handleClick = () => {
+      //   this.props.graphResults(this.props.surveyID);
+      // }
     render() {
         return (
             
             <>
             <Link to="/Results">
-            <Button style={{ height: '3rem', width: '11rem' }} onClick= {this.handleClick} variant="dark">View Results</Button>
+            <Button onClick= {() =>  this.props.graphResults(this.props.surveyID)}
+            variant="dark">Results</Button>
             </Link>
             
             </>

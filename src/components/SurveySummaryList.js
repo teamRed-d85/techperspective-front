@@ -17,17 +17,20 @@ export default class SurveySummaryList extends Component {
           {this.props.surveyData.map((info) => {
             return (
               <Accordion.Item key={info._id} eventKey={info.surveyID}>
+                {/* add surveyName */}
                 <Accordion.Header>Survey Date: {info.createdOn}</Accordion.Header>
                 <Accordion.Body style={{ textAlign: 'center' }}>
                   <Row>
-                    <Col>Submission Count: {info.submissionCount}</Col>
+                    <Col>Survey Name: {info.surveyName}</Col>
                     <Col>Survey ID: {info.surveyID}</Col>
-                    <Col>
-                      <ResultsButton surveyData = {info.results} graphResults = {this.props.graphResults}/>
-                    </Col>
-                    <Col>
-                      <DeleteButton surveyData={info} deleteSavedSurvey={this.props.deleteSavedSurvey} />
-                    </Col>
+                    {/* STRETCH: possibly move delete button to make more accessible to delete multiple*/}
+                      <Col style={{ float: 'right' }}>
+                          <ResultsButton surveyID={info.surveyID} graphResults={this.props.graphResults}
+                          // onClick= {() =>  this.props.graphResults(info.surveyID)}
+                          />
+                          
+                          <DeleteButton surveyData={info} deleteSavedSurvey={this.props.deleteSavedSurvey} />
+                      </Col>
                   </Row>
                 </Accordion.Body>
               </Accordion.Item>
