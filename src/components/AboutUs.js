@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import bios from './aboutUs.json';
 import BioCard from './BioCard'
-// import '../css/aboutUs.css';
 
 export default class AboutUs extends Component {
 
