@@ -15,7 +15,7 @@ class Header extends Component {
       <>
           <Navbar style={{ padding: 0 }} id="headerBackground" expand="lg">
               <Container style={{ paddingLeft: 0}} fluid>
-                  <a href="https://www.codefellows.org/">
+                  <a href="https://www.codefellows.org/" target="_blank ">
                   <Image
                       id="headerImage"
                       src="cf-logo-horizontal-2-color-white.png"
