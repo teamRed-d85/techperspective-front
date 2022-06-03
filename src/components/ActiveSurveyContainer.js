@@ -11,13 +11,16 @@ class ActiveSurveyContainer extends Component {
                 <br></br>
 
                 <div style={{ justifyContent: "center" }} >
-                    {this.props.activeSurvey && (this.props.activeSurvey.map((survey, idx) => {
+                    {this.props.activeSurvey ?
+                        (this.props.activeSurvey.map((survey, idx) => {
                         return (
 
                             <ActiveSurvey graphResults={this.props.graphResults} openModal={this.props.openModal} key={idx} activeSurvey={survey} />
 
                         )
-                    }))}
+                    })) :
+                    <></>
+                }
 
                     {/*{this.props.activeSurvey && <ActiveSurvey graphResults={this.props.graphResults} activeSurvey={this.props.activeSurvey} openModal={this.props.openModal} getActiveSurvey={this.props.getActiveSurvey} />}*/}
                 </div>
