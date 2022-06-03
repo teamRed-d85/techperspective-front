@@ -29,7 +29,7 @@ class ActiveSurvey extends Component {
                         {/* Copies individual survey link */}
 
                         <CopyToClipboard text={`${process.env.REACT_APP_AUTH_REDIRECT_URI}/${this.props.activeSurvey.surveyID}`}>
-                            <Button style={{ maxHeight: 36 }} variant="primary" onClick={this.setShow}>Share Link</Button>
+                            <Button style={{ maxHeight: 36 }} variant="primary" onClick={this.setShow}>Share</Button>
                         </CopyToClipboard>
                         <Overlay target={this.state.target} show={this.state.show} placement="right">
                             {(props) => (
@@ -46,7 +46,7 @@ class ActiveSurvey extends Component {
 
                         <ResultsButton surveyID={this.props.activeSurvey.surveyID} graphResults={this.props.graphResults} />
 
-                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }} variant="outline-dark" onClick={() => { this.props.openModal(this.props.activeSurvey) }}>Archive Survey</Button>
+                        <Button style={{ maxHeight: 36, paddingLeft: 0, paddingRight: 0 }} variant="outline-dark" onClick={() => { this.props.openModal(this.props.activeSurvey) }}>Archive</Button>
                     </Row>
                 </Card.Body>
             </Card>
