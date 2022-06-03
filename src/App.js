@@ -18,7 +18,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeSurvey: null,
+      activeSurvey: [],
       surveyData: [],
       surveyId: null,
       error: false,
@@ -164,7 +164,7 @@ class App extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getActiveSurvey();
   }
 

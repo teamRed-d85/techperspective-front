@@ -11,7 +11,6 @@ class ActiveSurveyContainer extends Component {
                 <br></br>
 
                 <div style={{ justifyContent: "center" }} >
-
                     {this.props.activeSurvey && (this.props.activeSurvey.map((survey, idx) => {
                         return (
 
