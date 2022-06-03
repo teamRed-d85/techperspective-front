@@ -21,6 +21,13 @@ ChartJS.register(
 );
 export const options = {
   responsive: true,
+  scales: {
+    y: {
+      ticks: {
+        callback: function(value) {if (value % 1 === 0) return value},
+      }
+    }
+  },
   plugins: {
     legend: {
       position: 'bottom',
@@ -30,22 +37,35 @@ export const options = {
       text: 'Number of People who took the survey',
       position: 'left'
     },
-    scales: {
-      y: {
-        display: true,
-        scaleLabel: {
-          display: true,
-          labelString: 'Value'
-        },
-        ticks: {
-            min: 0,
-            max: 100,
-            stepSize: 1
-          }
-        }
-      }
   },
-  };
+};
+// export const options = {
+//   responsive: true,
+//   plugins: {
+//     legend: {
+//       position: 'bottom',
+//     },
+//     title: {
+//       display: true,
+//       text: 'Number of People who took the survey',
+//       position: 'left'
+//     },
+//     scales: {
+//       y: {
+//         display: true,
+//         scaleLabel: {
+//           display: true,
+//           labelString: 'Value'
+//         },
+//         ticks: {
+//             min: 0,
+//             max: 100,
+//             stepSize: 1
+//           }
+//         }
+//       }
+//   },
+//   };
   export default function ResultsGraph(props) {
 
     const labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"]
