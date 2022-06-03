@@ -3,9 +3,6 @@ import SurveyIframe from './SurveyIframe';
 
 
 export default class Survey extends Component {
-    componentDidMount () {
-        console.log(window.location.pathname.slice(1));
-    }
     render() {
         const id = window.location.pathname.slice(1);
         return (

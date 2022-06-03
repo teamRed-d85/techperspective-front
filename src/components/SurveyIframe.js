@@ -5,9 +5,7 @@ import Iframe from "react-iframe";
 // Iframe docs here: https://www.npmjs.com/package/react-iframe
 
 export default class SurveyIframe extends Component {
-  componentDidMount(){
-    console.log(this.props.id);
-  }
+ 
   render() {
     return (
       <div>
